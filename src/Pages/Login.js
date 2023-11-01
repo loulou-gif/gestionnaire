@@ -1,7 +1,7 @@
 import fondImage from "../assets/fond/fond-1.jpg";
 import Connexion from "../components/formulaires/FormConnexion";
 
-function Login() {
+function LogIn() {
   return (
     <div className="bg-cover bg-center h-screen" style={{backgroundImage: `url(${fondImage})`}}>
       <Connexion />
@@ -9,4 +9,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LogIn;
