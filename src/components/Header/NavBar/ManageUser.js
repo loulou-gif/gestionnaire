@@ -1,11 +1,10 @@
-
 import accountIcone from "../../../assets/icone/user.png"
 import notifIcone from "../../../assets/icone/cloche-de-notification.png"
 
 function ManageUser() {
     return(
         <div>
-            <header className=" ml-72 w-10/11">
+            <header className=" ml-72 w-10/11 ">
                 <div className="bg-orange-200">
                     <nav className="flex justify-between items-center h-full">
                         <div className="flex justify-normal items-center  h-full" >
