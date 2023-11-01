@@ -7,7 +7,6 @@ import FirstOnglet from "../components/onglet/FirstOnglet"
 function AdminHome() {
     return(
         <div>
-            
             <FirstOnglet/>
             <SuperAdmin/>
             <Copyright/>
