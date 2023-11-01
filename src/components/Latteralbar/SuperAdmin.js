@@ -6,7 +6,6 @@ import CreateUser from "../formulaires/CreateUser"
 function SuperAdmin() {
     return(
         <div>
-            <ManageUser/>
             <div className=" flex justify-normal">
                 <div className="">
                     
