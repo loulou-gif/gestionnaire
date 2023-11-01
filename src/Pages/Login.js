@@ -1,4 +1,4 @@
-import fondImage from "../assets/fond/interieur-du-grand-entrepot-distribution-etageres-empilees-palettes-produits-prets-pour-marche.jpg";
+import fondImage from "../assets/fond/fond-1.jpg";
 import Connexion from "../components/formulaires/Connexion";
 
 function Login() {
