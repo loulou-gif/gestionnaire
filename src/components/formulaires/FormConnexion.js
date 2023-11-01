@@ -6,7 +6,7 @@ function Connexion() {
             </div>
             <div className="flex justify-end h-screen">
                 <div className="h-96 opacity-95  bg-neutral-200 p-16 mt-48 rounded-md">
-                    <form className="mt-8">
+                    <form className="mt-8" method="POST">
                         <div className="pb-5">
                             <input className="w-64 outline-0 rounded-md bg-neutral-300 pt-2 pb-2 pl-5" placeholder="Nom d'utilisateur" type="text" name="username" />
                         </div>

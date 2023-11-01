@@ -1,5 +1,5 @@
 import fondImage from "../assets/fond/fond-1.jpg";
-import Connexion from "../components/formulaires/Connexion";
+import Connexion from "../components/formulaires/FormConnexion";
 
 function Login() {
   return (

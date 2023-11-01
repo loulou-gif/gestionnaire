@@ -6,7 +6,7 @@ function CreateUser() {
         <div className=''>
             <div className="flex items-center justify-center h-screen">
                 <div className="content bg-neutral-300 rounded-md shadow-md ml-64 p-14 ">
-                    <form className="">
+                    <form className="" method="POST">
                         <div className="">
                             <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="text" name="username" placeholder="Nom d'utilisateur"/>
                             <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="text" name="name" placeholder="Nom et Prénoms"/>
