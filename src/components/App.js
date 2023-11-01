@@ -1,6 +1,6 @@
 import {Routes, Route } from "react-router-dom";
 import AdminHome from "../Pages/AdminHome";
-import Login from "../Pages/login";
+import Login from "../Pages/Login";
 // import ManageUser from "./Header/NavBar/ManageUser";
 // import SuperAdmin from "./Latteralbar/SuperAdmin";
 

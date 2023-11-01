@@ -1,4 +1,4 @@
-import ManageUser from "../Header/NavBar/ManageUser"
+// import ManageUser from "../Header/NavBar/ManageUser"
 import "../../style/Latteral.css"
 import logo from '../../assets/logo/logo.jpg'
 import CreateUser from "../formulaires/CreateUser"
