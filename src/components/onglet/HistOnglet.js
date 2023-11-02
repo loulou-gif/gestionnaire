@@ -1,6 +1,6 @@
-import UserList from "../dataTable/UserList"
-import CreateUser from "../formulaires/CreateUser"
-import History from "../Header/NavBar/History"
+import ConnexionList from "../dataTable/ConnexionList";
+import HistoryList from "../dataTable/HistoryList";
+import History from "../Header/NavBar/History";
 import React from "react";
 
 function useTabHandling() {
@@ -22,8 +22,8 @@ function HistOnglet() {
             </div>
             <div className="h-screen -mt-16 flex justify-center items-center" >
                 <div className="tab-content flex flex-col">
-                    {activeTab === 'tab1' && <CreateUser />}
-                    {activeTab === 'tab2' && <UserList />}
+                    {activeTab === 'tab1' && <ConnexionList />}
+                    {activeTab === 'tab2' && <HistoryList />}
                 </div>
             </div>
             

@@ -1,6 +1,6 @@
 import UserList from "../dataTable/UserList"
 import FormGeneral from "../formulaires/FormGeneral";
-import Settings from "../Header/NavBar/Settings"
+import Settings from "../Header/NavBar/Settings";
 import React from "react";
 
 function useTabHandling() {

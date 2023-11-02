@@ -3,6 +3,7 @@ import notifIcone from "../../../assets/icone/cloche-de-notification.png"
 import "../../../style/manage.css"
 import React, { useState } from 'react';
 
+
 function ManageUser() {
     const [activeTab, setActiveTab] = useState('tab1');
 
