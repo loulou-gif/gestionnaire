@@ -11,8 +11,8 @@ const Buttons =( {activeTab, openTab}) => {
                 <div className="bg-orange-200">
                     <nav className="flex justify-between items-center h-full">
                         <div className="flex justify-normal items-center  h-full" >
-                            <div className={`font-bold w-60 text-center pt-5 pb-5 hover:bg-orange-300 hover:border-b hover:border-black cursor-pointer  ${activeTab === 'tab1' ? 'bg-orange-300 hover:border-b' : ''}`}  onClick={() => openTab('tab1')}>Création de compte</div>
-                            <div className={`font-bold w-60 text-center pt-5 pb-5 hover:bg-orange-300 hover:border-b hover:border-black cursor-pointer  ${activeTab === 'tab2' ? 'bg-orange-300 hover:border-b' : ''}`} onClick={() => openTab('tab2')}>Liste des utilisateurs</div>
+                            <div className={`font-bold w-60 text-center pt-5 pb-5 hover:bg-orange-300 hover:border-b hover:border-black cursor-pointer  ${activeTab === 'tab1' ? 'bg-orange-300 hover:border-b border-b border-black cursor-pointer' : ''}`}  onClick={() => openTab('tab1')}>Création de compte</div>
+                            <div className={`font-bold w-60 text-center pt-5 pb-5 hover:bg-orange-300 hover:border-b hover:border-black cursor-pointer  ${activeTab === 'tab2' ? 'bg-orange-300 hover:border-b border-b border-black cursor-pointer' : ''}`} onClick={() => openTab('tab2')}>Liste des utilisateurs</div>
                         </div>
                         
                         <div className="flex justify-end items-center h-full">

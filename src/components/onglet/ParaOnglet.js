@@ -1,6 +1,6 @@
 import UserList from "../dataTable/UserList"
-import CreateUser from "../formulaires/CreateUser"
-import History from "../Header/NavBar/History"
+import FormGeneral from "../formulaires/FormGeneral";
+import Settings from "../Header/NavBar/Settings"
 import React from "react";
 
 function useTabHandling() {
@@ -13,16 +13,16 @@ function useTabHandling() {
     return { activeTab, openTab };
 }
 
-function HistOnglet() {
+function ParaOnglet() {
     const { activeTab, openTab } = useTabHandling();
     return(
         <div>
             <div className="tabs">
-                <History activeTab={activeTab} openTab={openTab} />
+                <Settings activeTab={activeTab} openTab={openTab} />
             </div>
             <div className="h-screen -mt-16 flex justify-center items-center" >
                 <div className="tab-content flex flex-col">
-                    {activeTab === 'tab1' && <CreateUser />}
+                    {activeTab === 'tab1' && <FormGeneral />}
                     {activeTab === 'tab2' && <UserList />}
                 </div>
             </div>
@@ -31,4 +31,4 @@ function HistOnglet() {
     )
 }
 
-export default HistOnglet
+export default ParaOnglet 

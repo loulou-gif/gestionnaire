@@ -1,18 +1,22 @@
-import React from "react"
 import accountIcone from "../../../assets/icone/user.png"
 import notifIcone from "../../../assets/icone/cloche-de-notification.png"
-import "../../../style/manage.css" 
-import "../../../style/forms.css"
+import "../../../style/manage.css"
+import React, { useState } from 'react';
 
-const HistButtons =( {activeTab, openTab}) => {
+function Settings() {
+    const [activeTab, setActiveTab] = useState('tab1');
+
+    const openTab = (tabName) => {
+        setActiveTab(tabName);
+  };
     return(
         <div>
             <header className=" ml-72 w-10/11 ">
                 <div className="bg-orange-200">
                     <nav className="flex justify-between items-center h-full">
                         <div className="flex justify-normal items-center  h-full" >
-                            <div className={`font-bold w-60 text-center pt-5 pb-5 hover:bg-orange-300 hover:border-b hover:border-black cursor-pointer  ${activeTab === 'tab1' ? 'bg-orange-300 hover:border-b border-b border-black cursor-pointer' : ''}`}  onClick={() => openTab('tab1')}>Historique de connexion</div>
-                            <div className={`font-bold w-60 text-center pt-5 pb-5 hover:bg-orange-300 hover:border-b hover:border-black cursor-pointer  ${activeTab === 'tab2' ? 'bg-orange-300 hover:border-b border-b border-black cursor-pointer' : ''}`} onClick={() => openTab('tab2')}>Historique des actions</div>
+                            <div className={`font-bold w-60 text-center pt-5 pb-5 hover:bg-orange-300 hover:border-b hover:border-black cursor-pointer  ${activeTab === 'tab1' ? 'bg-orange-300 hover:border-b border-b border-black cursor-pointer' : ''}`}  onClick={() => openTab('tab1')}>Paramètre générale</div>
+                            <div className={`font-bold w-60 text-center pt-5 pb-5 hover:bg-orange-300 hover:border-b hover:border-black cursor-pointer  ${activeTab === 'tab2' ? 'bg-orange-300 hover:border-b border-b border-black cursor-pointer' : ''}`} onClick={() => openTab('tab2')}>Paramètre de l'application</div>
                         </div>
                         
                         <div className="flex justify-end items-center h-full">
@@ -23,9 +27,8 @@ const HistButtons =( {activeTab, openTab}) => {
                     
                 </div>
             </header>
-            
         </div>
     )
 }
 
-export default HistButtons
+export default Settings
