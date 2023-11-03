@@ -1,5 +1,5 @@
-import fondImage from "../assets/fond/fond-1.jpg";
-import Connexion from "../components/formulaires/FormConnexion";
+import fondImage from "../../assets/fond/fond-1.jpg";
+import Connexion from "../../components/formulaires/FormConnexion";
 import React from "react"
 
 function LogIn() {

@@ -1,6 +1,6 @@
-import SuperAdmin from "../components/Latteralbar/SuperAdmin"
-import Copyright from "../components/Footer/Copyright"
-import HistOnglet from "../components/onglet/HistOnglet"
+import SuperAdmin from "../../components/Latteralbar/SuperAdmin"
+import Copyright from "../../components/Footer/Copyright"
+import HistOnglet from "../../components/onglet/HistOnglet"
 import React from "react"
 
 function Historique() {

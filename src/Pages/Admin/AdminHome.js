@@ -1,7 +1,7 @@
-import Copyright from "../components/Footer/Copyright"
+import Copyright from "../../components/Footer/Copyright"
 // import ManageUser from "../components/Header/NavBar/ManageUser"
-import SuperAdmin from "../components/Latteralbar/SuperAdmin"
-import FirstOnglet from "../components/onglet/FirstOnglet"
+import SuperAdmin from "../../components/Latteralbar/SuperAdmin"
+import FirstOnglet from "../../components/onglet/FirstOnglet"
 // import CreateUser from "../components/formulaires/CreateUser"
 import React from "react"
 
