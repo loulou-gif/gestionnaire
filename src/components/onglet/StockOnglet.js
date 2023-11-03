@@ -23,9 +23,9 @@ function StockOnglet() {
             </div>
             <div className="h-screen -mt-16 flex justify-center items-center" >
                 <div className="tab-content flex flex-col">
-                    {activeTab === 'tab1' && <ConnexionList />}
+                    {activeTab === 'tab1' && <SettingForm />}
                     {activeTab === 'tab2' && <StockList />}
-                    {activeTab === 'tab3' && <SettingForm />}
+                    {activeTab === 'tab3' && <ConnexionList />}
                 </div>
             </div>
             
