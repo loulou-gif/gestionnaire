@@ -57,7 +57,7 @@ function StockList() {
     <div>
       <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto mt-72">
         <div className="content bg-neutral  rounded-md shadow-md ml-80 md:ml-40 p-14 w-10/12">
-        <h1>liste stock</h1>
+        <h1 className='text-2xl font-semibold font-serif'>liste stock</h1>
           <DataTable 
             columns={columns}
             data={data}
