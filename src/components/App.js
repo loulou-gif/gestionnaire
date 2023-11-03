@@ -3,6 +3,7 @@ import AdminHome from "../Pages/AdminHome";
 import LogIn from "../Pages/LogIn";
 import Historique from "../Pages/Historique"
 import Parametre from "../Pages/Parametre";
+import Stocks from "../Pages/Stocks";
 import React from "react"
 // import FisrtOnglet from "./onglet/FirstOnglet";
 // import ManageUser from "./Header/NavBar/ManageUser";
@@ -16,6 +17,7 @@ function App() {
         <Route path="/accueil" element={<AdminHome/>} />
         <Route path="/historique" element={<Historique/>} />
         <Route path="/parametre" element={<Parametre/>} />
+        <Route path="/stock" element={<Stocks/>} />
         <Route path="/" element={<LogIn/>} />
       </Routes>
     </div>

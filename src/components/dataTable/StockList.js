@@ -1,7 +1,7 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
 
-function UserList() {
+function StockList() {
   const columns = [
     { name: 'Name', selector: 'name', sortable: true },
     { name: 'Email', selector: 'email', sortable: true },
@@ -57,7 +57,7 @@ function UserList() {
     <div>
       <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto mt-72">
         <div className="content bg-neutral  rounded-md shadow-md ml-80 md:ml-40 p-14 w-10/12">
-        <h1>liste users</h1>
+        <h1>liste stock</h1>
           <DataTable 
             columns={columns}
             data={data}
@@ -81,4 +81,4 @@ function UserList() {
   );
 }
 
-export default UserList;
+export default StockList;
