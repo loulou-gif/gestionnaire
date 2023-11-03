@@ -1,17 +1,17 @@
 import React from "react"
 
-function FormGeneral() {
+function SettingForm() {
     return(
         <div>
             <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto mt-72">
                 <div className="content bg-neutral-300 rounded-md shadow-md ml-64 p-14 ">
                     <form className="" method="POST">
                         <div className="">
-                            <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="text" name="username" placeholder="Nom d'utilisateur"/>
+                            <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="text" name="direction" placeholder="Nom direction"/>
                             
                         </div>
                         <div className="">
-                            <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="text" name="email" placeholder="email@mail.log"/>
+                            <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="text" name="manager" placeholder="Nom du manager"/>
                             
                         </div>
                         <div className="">
@@ -28,4 +28,4 @@ function FormGeneral() {
     )
 }
 
-export default FormGeneral
+export default SettingForm

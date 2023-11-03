@@ -3,7 +3,7 @@ import React from "react"
 function Connexion() {
     return(
         <div className="flex justify-around">
-            <div className="text-white text-5xl font-bold mt-24 ">
+            <div className="text-white text-5xl font-bold mt-72 ">
                 <h1>GESTIONNAIRES</h1>
             </div>
             <div className="flex justify-end h-screen">
