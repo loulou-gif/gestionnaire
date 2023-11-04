@@ -1,5 +1,5 @@
 // import ManageUser from "../Header/NavBar/ManageUser"
-import "../../style/Latteral.css"
+// import "../../style/Latteral.css"
 import logo from '../../assets/logo/logo.jpg'
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
@@ -12,7 +12,7 @@ function SuperAdmin() {
         setActiveLink(link);
   };
     return(
-        <div>
+        <div className="absolute top-0 left-0 h-screen w-64">
             <div className=" flex justify-normal">
                 <div className="">
                     
@@ -31,10 +31,7 @@ function SuperAdmin() {
                         </nav>
                     </div>
                 </div>
-                <div className="">
-                    {/* <CreateUser/> */}
-                </div>
-
+            
             </div>
             
         </div>
