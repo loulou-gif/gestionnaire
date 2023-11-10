@@ -3,7 +3,7 @@ import React from "react"
 function Connexion() {
     return(
         <div className="flex justify-around">
-            <div className="text-white text-5xl font-bold mt-72 ">
+            <div className="text-white text-5xl font-bold mt-44 ">
                 <h1>GESTIONNAIRES</h1>
             </div>
             <div className="flex justify-end h-screen">
@@ -13,7 +13,7 @@ function Connexion() {
                             <input className="w-64 outline-0 rounded-md bg-neutral-300 pt-2 pb-2 pl-5" placeholder="Nom d'utilisateur" type="text" name="username" />
                         </div>
                         <div className="w-64 pb-5">
-                            <input className="w-64 outline-0 rounded-md bg-neutral-300 pt-2 pb-2 pl-5" placeholder="*******" type="password" name="password"/>
+                            <input className="w-64 outline-0 rounded-md bg-neutral-300 pt-2 pb-2 pl-5" placeholder="Password" type="password" name="password"/>
                         </div>
 
                         <div className="flex justify-end">
