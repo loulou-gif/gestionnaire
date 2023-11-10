@@ -1,6 +1,6 @@
 import ConnexionList from "../dataTable/ConnexionList";
 import StockList from "../dataTable/StockList";
-import SettingForm from "../formulaires/SettingForm";
+import CreateProduct from "../formulaires/CreateProduct";
 import Stock from "../Header/NavBar/Stock";
 import React from "react";
 
@@ -23,7 +23,7 @@ function StockOnglet() {
             </div>
             <div className="h-screen -mt-16 flex justify-center items-center" >
                 <div className="tab-content flex flex-col">
-                    {activeTab === 'tab1' && <SettingForm />}
+                    {activeTab === 'tab1' && <CreateProduct />}
                     {activeTab === 'tab2' && <StockList />}
                     {activeTab === 'tab3' && <ConnexionList />}
                 </div>

@@ -3,53 +3,53 @@ import DataTable from 'react-data-table-component';
 
 function HistoryList() {
   const columns = [
-    { name: 'Name', selector: 'name', sortable: true },
-    { name: 'Email', selector: 'email', sortable: true },
-    { name: 'Tel', selector: 'tel', sortable: true },
-    { name: 'Direction', selector: 'direction', sortable: true },
-    { name: 'Ville', selector: 'ville', sortable: true }
+    { name: 'Nom', selector: 'name', sortable: true },
+    { name: 'Prénoms', selector: 'prenom', sortable: true },
+    { name: 'email', selector: 'email', sortable: true },
+    { name: 'Dernière connexion', selector: 'last_login', sortable: true },
+    { name: 'Status', selector: 'status', sortable: true }
   ];
 
   const data = [
     {
       id: '1',
       name: 'lolo',
-      email: 'eh weh',
-      direction: 'lolo',
-      ville: 'eh weh',
-      tel: 'lol'
+      prenom: 'eh weh',
+      last_login: 'lolo',
+      status: 'eh weh',
+      email: 'lol'
     },
     {
       id: '2',
       name: 'lolo',
-      email: 'eh weh',
-      direction: 'lolo',
-      ville: 'eh weh',
-      tel: 'lol'
+      prenom: 'eh weh',
+      last_login: 'lolo',
+      status: 'eh weh',
+      email: 'lol'
     },
     {
       id: '3',
       name: 'ju',
-      email: 'eh weh',
-      direction: 'lolo',
-      ville: 'eh weh',
-      tel: 'lol'
+      prenom: 'eh weh',
+      last_login: 'lolo',
+      status: 'eh weh',
+      email: 'lol'
     },
     {
       id: '4',
       name: 'lolo',
-      email: 'eh weh',
-      direction: 'lolo',
-      ville: 'eh weh',
-      tel: 'lol'
+      prenom: 'eh weh',
+      last_login: 'lolo',
+      status: 'eh weh',
+      email: 'lol'
     },
     {
       id: '5',
       name: 'lolo',
-      email: 'eh weh',
-      direction: 'lolo',
-      ville: 'eh weh',
-      tel: 'lol'
+      prenom: 'eh weh',
+      last_login: 'lolo',
+      status: 'eh weh',
+      email: 'lol'
     }
   ];
 

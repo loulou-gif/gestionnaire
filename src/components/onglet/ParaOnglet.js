@@ -1,4 +1,4 @@
-import UserList from "../dataTable/UserList"
+import SettingForm from "../formulaires/SettingForm"
 import FormGeneral from "../formulaires/FormGeneral";
 import Settings from "../Header/NavBar/Settings";
 import React from "react";
@@ -23,7 +23,7 @@ function ParaOnglet() {
             <div className="h-screen -mt-16 flex justify-center items-center" >
                 <div className="tab-content flex flex-col">
                     {activeTab === 'tab1' && <FormGeneral />}
-                    {activeTab === 'tab2' && <UserList />}
+                    {activeTab === 'tab2' && <SettingForm />}
                 </div>
             </div>
             
