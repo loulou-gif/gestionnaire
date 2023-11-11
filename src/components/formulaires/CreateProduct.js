@@ -5,19 +5,21 @@ function CreateProduct() {
             <div className="content bg-neutral-300 rounded-md shadow-md ml-64 p-14 ">
                 <form className="" method="POST">
                     <div className="">
+                        <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="text" name="product" placeholder="Nom du produit"/>
+                    </div>
+                    <div className="">
                         <select className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" name="categories">
-                                <option selected>Selectionner</option>
+                                <option selected>catégorie</option>
                         </select>
                         <select className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" name="status">
-                                <option selected>Selectionner</option>
+                                <option selected>Status</option>
                         </select> 
                     </div>
+                    
                     <div className="">
-                        <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="text" name="product" placeholder="Nom du produit"/>
-                        
-                    </div>
-                    <div className="">
-                        <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="text" name="emplacement" placeholder="emplacement"/>
+                        <select className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" name="location">
+                            <option selected>Emplacement</option>
+                        </select> 
                         <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="number" name="quantity" placeholder="quantité (Exp: 10)"/>
                     </div>
                     <div className="flex justify-center">
