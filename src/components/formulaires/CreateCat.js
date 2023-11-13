@@ -15,7 +15,7 @@ function CreateCat() {
       function handleSubmit(event) {
         event.preventDefault();
       
-        axios.post('http://categoriehost:8000/categories-produits/', categorie)
+        axios.post('http://localhost:8000/categories-produits/', categorie)
           .then(response => {
             console.log('Utilisateur créé avec succès', response.data);
             // Réinitialisez l'état du formulaire ou effectuez d'autres actions nécessaires.
@@ -35,7 +35,7 @@ function CreateCat() {
                             
                         </div>
                         <div className="">
-                            <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" value={categorie.details } type="textarea" name="details" placeholder="Description" onChange={handleInputChange}/>
+                            <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" value={categorie.details } type="text" name="details" placeholder="Description" onChange={handleInputChange}/>
                             
                         </div>
                         {/* <div className="">

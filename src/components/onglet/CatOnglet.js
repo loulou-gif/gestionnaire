@@ -1,5 +1,5 @@
 import CreateCat from "../formulaires/CreateCat"
-import StockList from "../dataTable/StockList";
+import CatList from "../dataTable/CatList";
 import Categories from "../Header/NavBar/Categories";
 import React from "react";
 
@@ -23,7 +23,7 @@ function CatOnglet() {
             <div className="h-screen -mt-16 flex justify-center items-center" >
                 <div className="tab-content flex flex-col">
                     {activeTab === 'tab1' && <CreateCat />}
-                    {activeTab === 'tab2' && <StockList />}
+                    {activeTab === 'tab2' && <CatList />}
                 </div>
             </div>
             

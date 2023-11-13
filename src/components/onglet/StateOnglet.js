@@ -1,5 +1,5 @@
 import CreateStatus from "../formulaires/CreateStatus"
-import StockList from "../dataTable/StockList";
+import StatusList from "../dataTable/StatusList";
 import StatusNavBar from "../Header/NavBar/StatusNavBar";
 import React from "react";
 
@@ -23,7 +23,7 @@ function StateOnglet() {
             <div className="h-screen -mt-16 flex justify-center items-center" >
                 <div className="tab-content flex flex-col">
                     {activeTab === 'tab1' && <CreateStatus />}
-                    {activeTab === 'tab2' && <StockList />}
+                    {activeTab === 'tab2' && <StatusList />}
                 </div>
             </div>
             

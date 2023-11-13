@@ -5,7 +5,7 @@ function StockList() {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/stock/")
+    fetch("http://localhost:8000/status-produit/")
       .then((response) => response.json()) // Ajout des parenthèses ici
       .then((data) => {
         console.log(data);
@@ -18,10 +18,7 @@ function StockList() {
 
   const columns = [
     { name: 'Nom du produit', selector: 'name', sortable: true },
-    { name: 'Catégorie', selector: 'category', sortable: true },
-    { name: 'Statut', selector: 'status', sortable: true },
-    { name: 'Emplacement', selector: 'location', sortable: true },
-    { name: 'Quantité', selector: 'quantity', sortable: true }
+    { name: 'Catégorie', selector: 'details', sortable: true },
   ];
 
   return (
