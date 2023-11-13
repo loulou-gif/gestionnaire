@@ -27,7 +27,7 @@ function SuperAdmin() {
                                 <Link to ="/parametre" id="Para" className={`select pt-2 pb-3 pl-5 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200 ${activeLink === 'Para' ? 'active' : ''}`} onClick={() => handleLinkClick('Para')}> Paramètres </Link>
                                 <Link to ="/status" id="stat" className={`select pt-2 pb-3 pl-5 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200 ${activeLink === 'stat' ? 'active' : ''}`} onClick={() => handleLinkClick('stat')}> Status </Link>
                                 <Link to ="/local" id="local" className={`select pt-2 pb-3 pl-5 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200 ${activeLink === 'local' ? 'active' : ''}`} onClick={() => handleLinkClick('local')}> Local </Link>
-
+                                <Link to ="/categories" id="cate" className={`select pt-2 pb-3 pl-5 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200 ${activeLink === 'cate' ? 'active' : ''}`} onClick={() => handleLinkClick('cate')}> categories </Link>
                                 </div>
                             </div>
                         </nav>

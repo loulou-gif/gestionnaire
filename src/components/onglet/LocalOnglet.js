@@ -15,7 +15,7 @@ function useTabHandling() {
     return { activeTab, openTab };
 }
 
-function ParaOnglet() {
+function LocalOnglet() {
     const { activeTab, openTab } = useTabHandling();
     return(
         <div>
@@ -33,4 +33,4 @@ function ParaOnglet() {
     )
 }
 
-export default ParaOnglet 
+export default LocalOnglet 

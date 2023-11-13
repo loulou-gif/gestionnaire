@@ -60,9 +60,11 @@ function CreateUser() {
         axios.post('http://localhost:8000/create-user/', account)
         .then(response =>{
             console.log('user create succesfully', response.data);
+            console.log(account)
         })
         .catch(error => {
             console.error("ERROR: Can't create user", error)
+            console.log(account)
         })
     }
 
@@ -82,7 +84,7 @@ function CreateUser() {
               <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="number" value={account.userdetail.numero} name="numero" placeholder="Numéro de téléphone" onChange={handleInputChange}/>
             </div>
             <div className="">
-              <select className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" value={account.userdetail} name="direction" onChange={handleDirectionChange} >
+              <select className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" value={account.userdetail.direction} name="direction" onChange={handleDirectionChange} >
                 <option value='Direction'>Direction</option> 
                 {directionOptions}
               </select>

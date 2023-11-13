@@ -1,6 +1,6 @@
-import CreateStatus from "../formulaires/CreateStatus"
+import CreateCat from "../formulaires/CreateCat"
 import StockList from "../dataTable/StockList";
-import StatusNavBar from "../Header/NavBar/StatusNavBar";
+import Categories from "../Header/NavBar/Categories";
 import React from "react";
 
 function useTabHandling() {
@@ -13,16 +13,16 @@ function useTabHandling() {
     return { activeTab, openTab };
 }
 
-function StateOnglet() {
+function CatOnglet() {
     const { activeTab, openTab } = useTabHandling();
     return(
         <div>
             <div className="tabs">
-                <StatusNavBar activeTab={activeTab} openTab={openTab} />
+                <Categories activeTab={activeTab} openTab={openTab} />
             </div>
             <div className="h-screen -mt-16 flex justify-center items-center" >
                 <div className="tab-content flex flex-col">
-                    {activeTab === 'tab1' && <CreateStatus />}
+                    {activeTab === 'tab1' && <CreateCat />}
                     {activeTab === 'tab2' && <StockList />}
                 </div>
             </div>
@@ -31,4 +31,4 @@ function StateOnglet() {
     )
 }
 
-export default StateOnglet 
+export default CatOnglet 

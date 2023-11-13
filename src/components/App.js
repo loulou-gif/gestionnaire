@@ -6,6 +6,7 @@ import Parametre from "../Pages/Admin/Parametre";
 import Stocks from "../Pages/Admin/Stocks";
 import React from "react"
 import State from "../Pages/Admin/State";
+import Categs from "../Pages/Admin/Categs";
 import Local from "../Pages/Admin/Local";
 // import FisrtOnglet from "./onglet/FirstOnglet";
 // import ManageUser from "./Header/NavBar/ManageUser";
@@ -19,6 +20,7 @@ function App() {
         <Route path="/accueil" element={<AdminHome/>} />
         <Route path="/local" element={<Local/>} />
         <Route path="/status" element={<State/>} />
+        <Route path="/categories" element={<Categs/>} />
         <Route path="/historique" element={<Historique/>} />
         <Route path="/parametre" element={<Parametre/>} />
         <Route path="/stock" element={<Stocks/>} />
