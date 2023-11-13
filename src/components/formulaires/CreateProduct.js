@@ -55,8 +55,8 @@ function CreateProduct() {
 
 
 
-    const maDate = "2023-11-09T12:34:56";
-    const date = new Date(maDate)
+    // const maDate = "2023-11-09T12:34:56";
+    const date = new Date()
 
     const annee = date.getFullYear();
     const jour = date.getDate();
@@ -111,8 +111,11 @@ function CreateProduct() {
             <div className="content bg-neutral-300 rounded-md shadow-md ml-64 p-14 ">
                 <form className="" onSubmit={handleSubmit}>
                     <div className="">
-                        <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="text" value={product.name} name="name" placeholder="Nom du produit" onChange={handleInputChange}/>
-                        <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="text" value={product.serial_number} name="serial_number" placeholder="numéreau de série" onChange={handleInputChange}/>
+                        <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="text" value={product.name} name="name" placeholder="Nom du produit" onChange={handleInputChange}/>
+                        <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="text" value={product.serial_number} name="serial_number" placeholder="numéreau de série" onChange={handleInputChange}/>
+                    </div>
+                    <div className="">
+                        <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="text" value={product.details} name="details" placeholder="Description" onChange={handleInputChange}/>
                     </div>
                     <div className="">
                         <select className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" value={product.category} name="category" onChange={handleInputChange}>
