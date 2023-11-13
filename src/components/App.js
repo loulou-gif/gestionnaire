@@ -5,6 +5,8 @@ import Historique from "../Pages/Admin/Historique"
 import Parametre from "../Pages/Admin/Parametre";
 import Stocks from "../Pages/Admin/Stocks";
 import React from "react"
+import State from "../Pages/Admin/State";
+import Local from "../Pages/Admin/Local";
 // import FisrtOnglet from "./onglet/FirstOnglet";
 // import ManageUser from "./Header/NavBar/ManageUser";
 // import SuperAdmin from "./Latteralbar/SuperAdmin";
@@ -15,6 +17,8 @@ function App() {
       <Routes>
         {/* <Route path="/" element={<ManageUser/>} /> */}
         <Route path="/accueil" element={<AdminHome/>} />
+        <Route path="/local" element={<Local/>} />
+        <Route path="/status" element={<State/>} />
         <Route path="/historique" element={<Historique/>} />
         <Route path="/parametre" element={<Parametre/>} />
         <Route path="/stock" element={<Stocks/>} />

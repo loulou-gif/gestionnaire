@@ -2,26 +2,26 @@ import React, {useState} from "react";
 import axios from "axios";
 
 
-function SettingForm() {
-    const [direction, setDirection] = useState({
+function CreateStatus() {
+    const [statut, setStatut] = useState({
         name: '',
         manager: '',
         // ... d'autres champs du formulaire
     });
     function handleInputChange(event) {
         const { name, value } = event.target;
-        setDirection({ ...direction, [name]: value });
+        setStatut({ ...statut, [name]: value });
       }
       function handleSubmit(event) {
         event.preventDefault();
       
-        axios.post('http://localhost:8000/direction/', direction)
+        axios.post('http://localhost:8000/status-produit/', statut)
           .then(response => {
-            console.log('Utilisateur créé avec succès', response.data);
+            console.log('status créé avec succès', response.data);
             // Réinitialisez l'état du formulaire ou effectuez d'autres actions nécessaires.
           })
           .catch(error => {
-            console.error('Erreur lors de la création de l\'utilisateur', error);
+            console.error('Erreur lors de la création du statu', error);
             // Gérez l'erreur, par exemple, affichez un message à l'utilisateur.
           });
       }
@@ -31,11 +31,11 @@ function SettingForm() {
                 <div className="content bg-neutral-300 rounded-md shadow-md ml-64 p-14 ">
                     <form className=""  onSubmit={handleSubmit} >
                         <div className="">
-                            <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" value={direction.direction} type="text" name="direction" placeholder="Nom direction" onChange={handleInputChange} />
+                            <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" value={statut.name} type="text" name="name" placeholder="Titre status" onChange={handleInputChange} />
                             
                         </div>
                         <div className="">
-                            <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" value={direction.manager } type="text" name="manager" placeholder="Nom du manager" onChange={handleInputChange}/>
+                            <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" value={statut.details } type="textarea" name="details" placeholder="Description du status" onChange={handleInputChange}/>
                             
                         </div>
                         {/* <div className="">
@@ -52,4 +52,4 @@ function SettingForm() {
     )
 }
 
-export default SettingForm
+export default CreateStatus
