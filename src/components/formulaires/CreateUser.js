@@ -61,6 +61,11 @@ function CreateUser() {
         .then(response =>{
             console.log('user create succesfully', response.data);
             console.log(account)
+            setAccount({
+              name: "",
+              details: "",
+              // ... réinitialisez d'autres champs si nécessaire
+          });
         })
         .catch(error => {
             console.error("ERROR: Can't create user", error)

@@ -19,6 +19,7 @@ function CreatLocal() {
           .then(response => {
             console.log('Utilisateur créé avec succès', response.data);
             // Réinitialisez l'état du formulaire ou effectuez d'autres actions nécessaires.
+            
           })
           .catch(error => {
             console.error('Erreur lors de la création de l\'utilisateur', error);

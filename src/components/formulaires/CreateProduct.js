@@ -87,6 +87,11 @@ function CreateProduct() {
       axios.post('http://localhost:8000/stock/', product)
       .then(response => {
         console.log('it\'s okey', response.data);
+        setProduct({
+          name: "",
+          details: "",
+          // ... réinitialisez d'autres champs si nécessaire
+      });
       })
       .catch(error => {
         console.error('it\' bad!', error)

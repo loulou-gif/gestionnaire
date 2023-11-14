@@ -19,6 +19,10 @@ function SettingForm() {
           .then(response => {
             console.log('Utilisateur créé avec succès', response.data);
             // Réinitialisez l'état du formulaire ou effectuez d'autres actions nécessaires.
+            setDirection({
+                name:"",
+                manager:"",
+            })
           })
           .catch(error => {
             console.error('Erreur lors de la création de l\'utilisateur', error);

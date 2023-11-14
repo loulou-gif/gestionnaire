@@ -19,6 +19,13 @@ function CreateCat() {
           .then(response => {
             console.log('Utilisateur créé avec succès', response.data);
             // Réinitialisez l'état du formulaire ou effectuez d'autres actions nécessaires.
+
+             // Réinitialisez l'état du formulaire
+            setCategories({
+                name: "",
+                details: "",
+                // ... réinitialisez d'autres champs si nécessaire
+            });
           })
           .catch(error => {
             console.error('Erreur lors de la création de l\'utilisateur', error);

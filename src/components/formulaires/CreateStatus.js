@@ -5,7 +5,7 @@ import axios from "axios";
 function CreateStatus() {
     const [statut, setStatut] = useState({
         name: '',
-        manager: '',
+        details: '',
         // ... d'autres champs du formulaire
     });
     function handleInputChange(event) {
@@ -19,6 +19,10 @@ function CreateStatus() {
           .then(response => {
             console.log('status créé avec succès', response.data);
             // Réinitialisez l'état du formulaire ou effectuez d'autres actions nécessaires.
+            setStatut({
+                name:"",
+                details:""
+            })
           })
           .catch(error => {
             console.error('Erreur lors de la création du statu', error);
