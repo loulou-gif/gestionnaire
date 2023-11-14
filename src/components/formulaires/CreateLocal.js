@@ -5,7 +5,7 @@ import axios from "axios";
 function CreatLocal() {
     const [local, setLocal] = useState({
         name: '',
-        manager: '',
+        details: '',
         // ... d'autres champs du formulaire
     });
     function handleInputChange(event) {
@@ -19,6 +19,10 @@ function CreatLocal() {
           .then(response => {
             console.log('Utilisateur créé avec succès', response.data);
             // Réinitialisez l'état du formulaire ou effectuez d'autres actions nécessaires.
+            setLocal({
+                name:"",
+                details:""
+            })
             
           })
           .catch(error => {
