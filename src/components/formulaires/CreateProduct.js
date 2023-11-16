@@ -83,6 +83,7 @@ function CreateProduct() {
     }
     function handleSubmit(e) {
       e.preventDefault();
+      
 
       axios.post('http://localhost:8000/stock/', product)
       .then(response => {
@@ -141,6 +142,7 @@ function CreateProduct() {
                         <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="number"value={product.quantity} name="quantity" placeholder="quantité (Exp: 10)" onChange={handleInputChange}/>
                     </div>
                     <div className="flex justify-center">
+                        {/* <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="file"value={product.quantity} name="image" placeholder="quantité (Exp: 10)" onChange={handleInputChange}/> */}
                         <button className="m-5 mb-0 p-2 w-72 bg-neutral-400 rounded-lg text-center text-white hover:bg-neutral-500"  >ENREGISTRER</button>
                     </div>
                 </form>

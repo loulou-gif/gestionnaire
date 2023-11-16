@@ -46,7 +46,7 @@ function UserList() {
           <DataTable columns={columns} data={user} pagination paginationPerPage={3} highlightOnHover paginationResetDefaultPage noHeader subHeader subHeaderComponent={<input
                 type="text"
                 placeholder="Rechercher..."
-                className="p-2 border border-gray-300"
+                className="p-2 h-8 border border-gray-300"
               />
             }
           />

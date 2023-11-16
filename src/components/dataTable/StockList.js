@@ -24,6 +24,15 @@ function StockList() {
     { name: 'Quantité', selector: 'quantity', sortable: true }
   ];
 
+  // const conditionalRowStyles = [
+  //   {
+  //     when: (row) => row.status === 'Indisponible', // Remplacez 'votre_condition' par la condition que vous souhaitez vérifier
+  //     style: {
+  //       // backgroundColor: 'red', // Remplacez 'votre_couleur' par la couleur souhaitée
+  //       color: 'Red', // Remplacez 'votre_couleur_texte' par la couleur du texte souhaitée
+  //     },
+  //   },
+  // ];
   return (
     <div>
       <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto mt-72">
@@ -45,6 +54,7 @@ function StockList() {
                 className="p-2 border border-gray-300"
               />
             }
+            // conditionalRowStyles={conditionalRowStyles}
           />
         </div>
       </div>
