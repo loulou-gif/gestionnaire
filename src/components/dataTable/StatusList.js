@@ -17,7 +17,7 @@ function StockList() {
   }, []);
 
   const columns = [
-    { name: 'Nom du produit', selector: 'name', sortable: true },
+    { name: 'Status', selector: 'name', sortable: true },
     { name: 'details', selector: 'details', sortable: true },
   ];
 

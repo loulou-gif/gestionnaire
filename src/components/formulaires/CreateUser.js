@@ -1,4 +1,5 @@
 import axios from "axios";
+// import {useForm} from "react-hook-form"
 import React, { useState, useEffect } from "react";
 
 function CreateUser() {
@@ -86,10 +87,10 @@ function CreateUser() {
             </div>
             <div className="">
               <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="text" value={account.email} name="email" placeholder="email@mail.log" onChange={handleInputChange}/>
-              <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="number" value={account.userdetail.numero} name="numero" placeholder="Numéro de téléphone" onChange={handleInputChange}/>
+              <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="text"  name="userdetail.numero" placeholder="Numéro de téléphone" onChange={handleInputChange}/>
             </div>
             <div className="">
-              <select className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" value={account.userdetail.direction} name="direction" onChange={handleDirectionChange} >
+              <select className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" value={account.userdetail.direction} name="userdetail.direction" onChange={handleDirectionChange} >
                 <option value='Direction'>Direction</option> 
                 {directionOptions}
               </select>
