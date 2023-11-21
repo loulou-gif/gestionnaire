@@ -34,3 +34,27 @@
     transform: translateY(-20px);
     transition: var(--speed) ease;
 }
+
+.drop-menu.active{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+    transition: 0.2 ease;
+}
+.drop-menu.inactive{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: 0.3s ease;
+}
+
+.drop-menu {
+    position: absolute;
+    list-style: none;
+}
+
+.drop-menu::before {
+    position: absolute;
+    list-style: none;
+    top:0px;
+}
