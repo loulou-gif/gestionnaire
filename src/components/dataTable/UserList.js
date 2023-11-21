@@ -20,7 +20,7 @@ function UserList() {
     { name: 'Name', cell:row => row['last_name'], sortable: true },
     { name: 'Username', cell:row => row['username'], sortable: true, width: "120px" },
     { name: 'Email', cell:row => row['email'], sortable: true ,width: "250px"},
-    { name: 'Action', cell:row => <div className=''> <img alt='' /> <img alt='' /> </div>  , sortable: true ,width: "250px"},
+    { name: 'Action', cell:row => <div className=''> <img alt='' className='h-full w-full' /> <img alt='' className='h-full w-full' /> <img alt='' className='h-full w-full' /> </div>  , sortable: true ,width: "250px"},
   ];
 
 
