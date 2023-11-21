@@ -6,6 +6,8 @@ import Icones from "../Icones";
 
 
 const Buttons = ({ activeTab, openTab }) => {
+  
+
   return (
     <div>
       <header className="ml-72 w-10/11">
