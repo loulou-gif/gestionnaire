@@ -25,21 +25,21 @@
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    transition: var(--speed) ease;
+    transition: 0.3s ease;
 }
     
 .dropdown-menu.inactive{
     opacity: 0;
     visibility: hidden;
     transform: translateY(-20px);
-    transition: var(--speed) ease;
+    transition: 0.2s ease;
 }
 
 .drop-menu.active{
     opacity: 1;
     visibility: visible;
     transform: translateY(0px);
-    transition: 0.2 ease;
+    transition: 0.2s ease;
 }
 .drop-menu.inactive{
     opacity: 0;

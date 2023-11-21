@@ -17,9 +17,9 @@ function UserList() {
       });
   }, []);
   const columns = [
-    { name: 'Name', selector: 'last_name', sortable: true },
-    { name: 'Username', selector: 'username', sortable: true, width: "120px" },
-    { name: 'Email', selector: 'email', sortable: true ,width: "250px"},
+    { name: 'Name', cell:row => row['last_name'], sortable: true },
+    { name: 'Username', cell:row => row['username'], sortable: true, width: "120px" },
+    { name: 'Email', cell:row => row['email'], sortable: true ,width: "250px"},
   ];
 
 
