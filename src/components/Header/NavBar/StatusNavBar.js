@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import accountIcone from "../../../assets/icone/user.png";
-import notifIcone from "../../../assets/icone/cloche-de-notification.png";
 import "../../../style/manage.css";
 import "../../../style/forms.css";
+import Icones from "../Icones";
 
 const Buttons = ({ activeTab, openTab }) => {
   return (
@@ -25,11 +24,7 @@ const Buttons = ({ activeTab, openTab }) => {
                 Liste de statuts
               </div>
             </div>
-
-            <div className="flex justify-end items-center h-full">
-              <img src={notifIcone} alt="notif" className="w-10 pr-3 cursor-pointer" />
-              <img src={accountIcone} alt="comptes" className="w-10 pr-3 mr-5 cursor-pointer" />
-            </div>
+            <Icones />
           </nav>
         </div>
       </header>

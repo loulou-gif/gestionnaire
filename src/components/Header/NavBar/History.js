@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import accountIcone from "../../../assets/icone/user.png";
-import notifIcone from "../../../assets/icone/cloche-de-notification.png";
 import "../../../style/manage.css";
 import "../../../style/forms.css";
+import Icones from "../Icones";
 
 const HistButtons = ({ activeTab, openTab }) => {
   return (
@@ -15,11 +14,7 @@ const HistButtons = ({ activeTab, openTab }) => {
               <div className={`font-bold w-60 text-center pt-5 pb-5 hover:bg-orange-300 hover:border-b hover:border-black cursor-pointer ${activeTab === 'tab1' ? 'bg-orange-300 hover:border-b border-b border-black cursor-pointer' : ''}`}onClick={() => openTab('tab1')}>Historique de connexion</div>
               <div className={`font-bold w-60 text-center pt-5 pb-5 hover:bg-orange-300 hover:border-b hover:border-black cursor-pointer ${activeTab === 'tab2' ? 'bg-orange-300 hover:border-b border-b border-black cursor-pointer' : ''}`} onClick={() => openTab('tab2')}>Historique des actions</div>
             </div>
-
-            <div className="flex justify-end items-center h-full">
-              <img src={notifIcone} alt="notif" className="w-10 pr-3 cursor-pointer" />
-              <img src={accountIcone} alt="comptes" className="w-10 pr-3 mr-5 cursor-pointer" />
-            </div>
+            < Icones />
           </nav>
         </div>
       </header>
