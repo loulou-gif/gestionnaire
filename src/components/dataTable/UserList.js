@@ -17,11 +17,9 @@ function UserList() {
       });
   }, []);
   const columns = [
-    { name: 'Name', selector: 'username', sortable: true },
-    { name: 'Email', selector: 'email', sortable: true },
-    { name: 'Tel', selector: 'userdetail.numero', sortable: true },
-    { name: 'Direction', selector: 'userdetail.direction', sortable: true },
-    { name: 'Manager', selector: 'userdetail.manager', sortable: true }
+    { name: 'Name', selector: 'last_name', sortable: true },
+    { name: 'Username', selector: 'username', sortable: true, width: "120px" },
+    { name: 'Email', selector: 'email', sortable: true ,width: "250px"},
   ];
 
 

@@ -17,10 +17,11 @@ function StockList() {
   }, []);
 
   const columns = [
-    { name: 'Produit', selector: 'name', sortable: true },
+    { name: 'Produit', selector: 'name', sortable: true},
     { name: 'Catégorie', selector: 'category', sortable: true },
-    { name: 'Statut', selector: 'status', sortable: true },
+    { name: 'Statut', selector: 'status', sortable: true, cell: row => <div className='border-spacing-10 rounded-md  w-24 text-center text-white bg-red-500'>{row.status} </div>  },
     { name: 'Emplacement', selector: 'location', sortable: true },
+    { name: 'Image', selector: 'image', sortable: true, cell: row => <img alt="" src={row.image} className='h-full w-full' /> },
     { name: 'Quantité', selector: 'quantity', sortable: true }
   ];
 
