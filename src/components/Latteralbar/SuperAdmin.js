@@ -3,6 +3,12 @@ import "../../style/dropMenu.css"
 import logo from '../../assets/logo/logo.jpg'
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
+import { MdManageAccounts, MdOutlineLocalGroceryStore, MdCategory, MdMyLocation } from 'react-icons/md';
+import { TbHistoryToggle } from "react-icons/tb";
+import { GrPowerCycle } from "react-icons/gr";
+import { CiSettings } from "react-icons/ci";
+import { RiListSettingsFill } from "react-icons/ri";
+
 // import CreateUser from "../formulaires/CreateUser"
 
 function SuperAdmin() {
@@ -24,48 +30,49 @@ function SuperAdmin() {
                                 <img src={logo} alt="logo" className="text-6xl " />
                                 <ul className="flex flex-col"> 
                                     <Link to ="/accueil" id="Gest"  >
-                                        <li className='select pt-5 pb-3 pl-5 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200'>
-                                            Gestion des utilisateurs 
+                                        <li className='flex select pt-5 pb-3 pl-5 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200'>
+                                         <MdManageAccounts className="text-2xl mr-3 " />   Gestion des utilisateurs 
                                         </li>
                                     </Link>   
                                     
                                     <Link to ="/historique" id="Hist" className="w-72" >
-                                        <li className='select pt-5 pb-3 pl-5 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200'>
-                                            Historiques 
+                                        <li className='flex   select pt-5 pb-3 pl-5 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200'>
+                                         < TbHistoryToggle className="text-2xl mr-3 "/>   Historiques 
                                         </li>
                                     </Link>   
                                     <Link to ="/stock" id="Stoc"  >
-                                        <li className='select pt-5 pb-3 pl-5 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200'>
-                                             Stocks 
+                                        <li className='flex  select pt-5 pb-3 pl-5 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200'>
+                                         <MdOutlineLocalGroceryStore className="text-2xl mr-3 " />    Stocks 
                                         </li>
                                     </Link>   
                                     <li >
-                                        <div className='select pt-5 pb-3 pl-5  cursor-pointer hover:border-r hover:border-black  hover:bg-orange-200'onClick={() => setDrop(!drop)}>
-                                           <h3>Paramètre</h3> 
+                                        <div className='flex select pt-5 pb-3 pl-5  cursor-pointer hover:border-r hover:border-black  hover:bg-orange-200'onClick={() => setDrop(!drop)}>
+                                         <CiSettings className="text-2xl mr-3 "/>     <h3>Paramètre</h3> 
                                         </div>
                                         <div className={`drop-menu transition duration-800 ease-out ${drop? 'active ' : 'inactive ' } `}>
                                             <ul>
-                                                <Link to ="/status" id="stat"  >
-                                                    <li className='select pt-5 pb-3 pl-5 w-72 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200'>
-                                                         Status 
+
+                                                <Link to ="/parametre" id="para"  >
+                                                    <li className='flex select pt-5 pb-3 pl-5 w-72 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200'>
+                                                    <RiListSettingsFill className="text-xl mr-3 ml-6"/>    Générale 
                                                     </li>
                                                 </Link>
-                                                
-                                                <Link to ="/parametre" id="para"  >
-                                                    <li className='select pt-5 pb-3 pl-5 w-72 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200'>
-                                                        Générale 
+
+                                                <Link to ="/status" id="stat"  >
+                                                    <li className='flex select pt-5 pb-3 pl-5 w-72 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200'>
+                                                    <GrPowerCycle className="text-xl mr-3 ml-6"/>     Status 
                                                     </li>
                                                 </Link>
                                                 
                                                 <Link to ="/local" id="local" className="h-full w-full "  > 
-                                                    <li className='select pt-5 pb-3 pl-5 w-72 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200'>
-                                                         Local 
+                                                    <li className='flex select pt-5 pb-3 pl-5 w-72 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200'>
+                                                     <MdMyLocation className="text-xl mr-3 ml-6 " />    Local 
                                                     </li>
                                                 </Link>
 
                                                 <Link to ="/categories" id="cate"   >
-                                                    <li className='select pt-5 pb-3 pl-5 w-72 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200'>
-                                                         Categories 
+                                                    <li className='flex select pt-5 pb-3 pl-5 w-72 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200'>
+                                                    <MdCategory className="text-xl mr-3 ml-6" />     Categories 
                                                     </li>
                                                 </Link>
                                             </ul>

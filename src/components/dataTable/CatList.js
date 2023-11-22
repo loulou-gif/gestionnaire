@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
+import { MdOutlineDeleteForever, MdOutlineInfo } from 'react-icons/md';
 
 function StockList() {
   const [product, setProduct] = useState([]);
@@ -17,8 +18,9 @@ function StockList() {
   }, []);
 
   const columns = [
-    { name: 'Catégories', selector: 'name', sortable: true },
-    { name: 'Description', selector: 'details', sortable: true },
+    { name: 'Catégories', selector: 'name', sortable: true, width: "150px" },
+    { name: 'Description', selector: 'details', sortable: true, width: "350px" },
+    { name: 'Action', width: "80px", cell:row => <div className='flex '>  <MdOutlineInfo className='text-xl text-green-400' /> <MdOutlineDeleteForever className='text-xl text-red-500' /> </div>},
   ];
 
   return (

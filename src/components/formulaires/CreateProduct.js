@@ -59,6 +59,7 @@ function CreateProduct() {
     const date = new Date()
 
     const annee = date.getFullYear();
+    const mois = date.getMonth()
     const jour = date.getDate();
     const heure = date.getHours();
     const minute = date.getMinutes();
@@ -67,7 +68,7 @@ function CreateProduct() {
     // for(let sn = 1; sn; sn ++){
     //   console.log("prod20"+sn)
     // }
-    const dateFormatee = `prod${annee}${jour}${heure}${minute}${seconde}`;
+    const dateFormatee = `prod${annee}${mois}${jour}${heure}${minute}${seconde}`;
     const [product, setProduct] = useState({
       name:"",
       category:"",
@@ -117,7 +118,7 @@ function CreateProduct() {
                 <form className="" onSubmit={handleSubmit}>
                     <div className="">
                         <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="text" value={product.name} name="name" placeholder="Nom du produit" onChange={handleInputChange}/>
-                        <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="text" value={product.serial_number} name="serial_number" placeholder="numéreau de série" onChange={handleInputChange}/>
+                        <input className="m-5 p-2 w-72 rounded-lg outline-0 bg-gray-200 text-neutral-600" type="text" value={product.serial_number} name="serial_number" placeholder="numéreau de série" onChange={handleInputChange} disabled/>
                     </div>
                     <div className="">
                         <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="text" value={product.details} name="details" placeholder="Description" onChange={handleInputChange}/>

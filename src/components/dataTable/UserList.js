@@ -19,9 +19,9 @@ function UserList() {
   }, []);
   const columns = [
     { name: 'Name', cell:row => row['last_name'], sortable: true },
-    { name: 'Username', cell:row => row['username'], sortable: true, width: "120px" },
-    { name: 'Email', cell:row => row['email'], sortable: true ,width: "250px"},
-    { name: 'Action', cell:row => <div className='flex '>  <MdOutlineInfo className='' /> <MdOutlineDeleteForever className='' /> </div>},
+    { name: 'Username', cell:row => row['username'], sortable: true, width: "130px" },
+    { name: 'Email', cell:row => row['email'], sortable: true ,width: "350px"},
+    { name: 'Action', cell:row => <div className='flex '>  <MdOutlineInfo className='text-xl text-green-400' /> <MdOutlineDeleteForever className='text-xl text-red-500' /> </div>},
   ];
 
 
