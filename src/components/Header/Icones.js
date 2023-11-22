@@ -1,5 +1,6 @@
 
 import accountIcone from "../../assets/icone/user.png";
+import { BiLogOut } from 'react-icons/bi';
 // import notifIcone from "../../assets/icone/cloche-de-notification.png";
 // import DropDownIcon from "./DropDownIcon";
 import { useState } from "react";
@@ -13,7 +14,7 @@ function Icones() {
             <img src={accountIcone} alt="comptes" className="w-10 pr-3 mr-5 cursor-pointer" onClick={() => {setMenu(!menu)} }/>
             <div className={`dropdown-menu  list-none text-center ${menu? 'active' : 'inactive'}`}>
                 <h3 className="font-bold pb-3">Menu user</h3>
-                <li className="border-t pt-3">Déconnexion</li>
+                <li className="border-t pt-3 flex"><BiLogOut className="mt-1 mr-3 "/>Déconnexion</li>
             </div>
         </div>
     )
