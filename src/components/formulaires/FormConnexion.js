@@ -27,6 +27,7 @@ function Connexion() {
         e.preventDefault();
         logIn(username, password);
     }
+    
     return(
         <div className="flex justify-around">
             <div className="text-white text-5xl font-bold mt-44 ">

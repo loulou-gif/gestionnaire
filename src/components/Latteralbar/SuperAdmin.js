@@ -26,9 +26,11 @@ function SuperAdmin() {
                     
                     <div className="latteral w-72  h-screen bg-orange-400">
                         <nav className=" ">
+                            
                             <div className="text-white font-bold text-xl">
                                 <img src={logo} alt="logo" className="text-6xl " />
                                 <ul className="flex flex-col"> 
+                                
                                     <Link to ="/accueil" id="Gest"  >
                                         <li className='flex select pt-5 pb-3 pl-5 hover:border-r cursor-pointer  hover:border-black  hover:bg-orange-200'>
                                          <MdManageAccounts className="text-2xl mr-3 " />   Gestion des utilisateurs 
@@ -76,6 +78,7 @@ function SuperAdmin() {
                                                     </li>
                                                 </Link>
                                             </ul>
+                                            
                                         </div>
                                     </li>
                                        
@@ -83,6 +86,7 @@ function SuperAdmin() {
                                 </ul>
                             </div>
                         </nav>
+                        
                     </div>
                 </div>
             

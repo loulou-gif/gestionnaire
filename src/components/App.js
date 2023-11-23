@@ -8,6 +8,8 @@ import React from "react"
 import State from "../Pages/Admin/State";
 import Categs from "../Pages/Admin/Categs";
 import Local from "../Pages/Admin/Local";
+// import SuperAdmin from "./Latteralbar/SuperAdmin";
+import Layout from "./Latteralbar/Layout";
 // import FisrtOnglet from "./onglet/FirstOnglet";
 // import ManageUser from "./Header/NavBar/ManageUser";
 // import SuperAdmin from "./Latteralbar/SuperAdmin";
@@ -16,15 +18,19 @@ function App() {
   return (
     <div> 
       <Routes>
-        {/* <Route path="/" element={<ManageUser/>} /> */}
-        <Route path="/accueil" element={<AdminHome/>} />
-        <Route path="/local" element={<Local/>} />
-        <Route path="/status" element={<State/>} />
-        <Route path="/categories" element={<Categs/>} />
-        <Route path="/historique" element={<Historique/>} />
-        <Route path="/parametre" element={<Parametre/>} />
-        <Route path="/stock" element={<Stocks/>} />
+        <Route element={<Layout />} >
+          <Route path="/accueil" element={<AdminHome/>} />
+          <Route path="/local" element={<Local/>} />
+          <Route path="/status" element={<State/>} />
+          <Route path="/categories" element={<Categs/>} />
+          <Route path="/historique" element={<Historique/>} />
+          <Route path="/parametre" element={<Parametre/>} />
+          <Route path="/stock" element={<Stocks/>} />
+        </Route>
+        
         <Route path="/" element={<LogIn/>} />
+        {/* <Route path="/" element={<ManageUser/>} /> */}
+        
       </Routes>
     </div>
   )
