@@ -8,11 +8,7 @@ import React from "react"
 import State from "../Pages/Admin/State";
 import Categs from "../Pages/Admin/Categs";
 import Local from "../Pages/Admin/Local";
-// import SuperAdmin from "./Latteralbar/SuperAdmin";
 import Layout from "./Latteralbar/Layout";
-// import FisrtOnglet from "./onglet/FirstOnglet";
-// import ManageUser from "./Header/NavBar/ManageUser";
-// import SuperAdmin from "./Latteralbar/SuperAdmin";
 
 function App() {
   return (
@@ -29,7 +25,6 @@ function App() {
         </Route>
         
         <Route path="/" element={<LogIn/>} />
-        {/* <Route path="/" element={<ManageUser/>} /> */}
         
       </Routes>
     </div>

@@ -1,20 +1,25 @@
 import React, { useState } from "react"
+import { useNavigate } from 'react-router-dom';
 
 function Connexion() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
     const logIn = async (username, password) => {
         await fetch('http://localhost:8000/auth/login/', {method: 'POST',
         body: JSON.stringify({
             username: username,
             password: password,
-            userId: Math.random().toString(36).slice(2),
+            // userId: Math.random().toString(36).slice(2),
         }),
         headers:{
             'Content-type': 'application/json; charset=UTF-8',
         },
         })
-        .then((response) => response.json())
+        .then((response) => {
+            response.json();
+            navigate('/accueil');
+        })
         .then((data) => {
             setUsername('');
             setPassword('');
