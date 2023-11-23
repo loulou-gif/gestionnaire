@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { MdOutlineDeleteForever, MdOutlineInfo } from 'react-icons/md';
 import DataTable from 'react-data-table-component';
+import { RiEditBoxLine } from "react-icons/ri";
 
 
 function UserList() {
@@ -21,7 +22,7 @@ function UserList() {
     { name: 'Name', cell:row => row['last_name'], sortable: true },
     { name: 'Username', cell:row => row['username'], sortable: true, width: "130px" },
     { name: 'Email', cell:row => row['email'], sortable: true ,width: "350px"},
-    { name: 'Action', cell:row => <div className='flex '>  <MdOutlineInfo className='text-xl text-green-400' /> <MdOutlineDeleteForever className='text-xl text-red-500' /> </div>},
+    { name: 'Action', cell:row => <div className='flex '>  <MdOutlineInfo className='text-xl text-green-400' /> <RiEditBoxLine className='text-xl text-orange-400'/>  <MdOutlineDeleteForever className='text-xl text-red-500' /> </div>},
   ];
 
 

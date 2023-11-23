@@ -7,40 +7,11 @@ import axios from "axios";
 
 function Icones() {
     const [menu, setMenu] = useState(false);
-    // const history = useHistory();  // Initialisez le hook useHistory
-
-    // const handleLogout = async () => {
-    //     try {
-    //         // Effectuez une requête à votre API de déconnexion
-    //         const response = await fetch('http://localhost:8000/auth/logout/', {
-    //             method: 'POST',  // Assurez-vous que la méthode HTTP est correcte
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 // Ajoutez d'autres en-têtes si nécessaire (par exemple, des jetons d'authentification)
-    //             },
-    //         });
-
-    //         if (response.ok) {
-    //             // Si la déconnexion réussit, redirigez l'utilisateur vers la page de connexion
-    //             history.push('/login');
-    //         } else {
-    //             // Gérez les erreurs de déconnexion ici
-    //             console.error('Échec de la déconnexion');
-    //         }
-    //     } catch (error) {
-    //         // Gérez les erreurs réseau ici
-    //         console.error('Erreur réseau lors de la déconnexion', error);
-    //     }
-    // };
-
     let navigate =  useNavigate()
 
     const logout = () => {
-
         axios.post('http://localhost:8000/auth/logout/');
-        navigate("/")
-
-
+        navigate("/");
     }
 
     let menuRef = useRef()
@@ -53,8 +24,6 @@ function Icones() {
         };
 
         document.addEventListener('mousedown', handler);
-
-        // Retirez l'écouteur d'événements lors du nettoyage
         return () => {
             document.removeEventListener('mousedown', handler);
         };
