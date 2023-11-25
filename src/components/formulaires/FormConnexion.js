@@ -17,8 +17,12 @@ function Connexion() {
         },
         })
         .then((response) => {
-            response.json();
-            navigate('/accueil');
+            response.json()
+
+            if(response){
+                navigate('/accueil')
+            }
+            
         })
         .then((data) => {
             setUsername('');

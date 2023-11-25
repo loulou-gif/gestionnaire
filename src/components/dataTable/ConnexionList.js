@@ -54,12 +54,12 @@ function ConnexionList() {
   ];
 
   return (
-    <div>
-      <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto mt-72">
+    <div className=' flex  flex-auto mt-72 '>
+      
         
-        <div className="content bg-neutral  rounded-md shadow-md ml-80 md:ml-40 p-14 w-10/12">
+        <div className="content bg-neutral   rounded-md  shadow-md ml-80 md:ml-40 p-14 w-10/12">
             <h1 className='text-2xl font-semibold font-serif'>liste connexion</h1>
-          <DataTable 
+          <DataTable  
             columns={columns}
             data={data}
             pagination
@@ -78,7 +78,6 @@ function ConnexionList() {
           />
         </div>
       </div>
-    </div>
   );
 }
 

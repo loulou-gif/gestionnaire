@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
+// import { MdOutlineDeleteForever, MdOutlineInfo } from 'react-icons/md';
+// import { RiEditBoxLine } from "react-icons/ri";
+import IconDatatable from "./IconDatatable"
 
 function StockList() {
   const [product, setProduct] = useState([]);
@@ -21,8 +24,9 @@ function StockList() {
     { name: 'Catégorie', selector: 'category', sortable: true },
     { name: 'Statut', selector: 'status', sortable: true, cell: row => <div className='border-spacing-10 rounded-md  w-24 text-center text-white bg-red-500'>{row.status} </div>  },
     { name: 'Emplacement', selector: 'location', sortable: true },
-    { name: 'Image', selector: 'image', sortable: true, cell: row => <img alt="" src={row.image} className='h-full w-full' /> },
-    { name: 'Quantité', selector: 'quantity', sortable: true }
+    { name: 'Image', selector: 'image', sortable: true, cell: row => <img alt="" src={row.image} className='h-full w-72' /> },
+    { name: 'Quantité', selector: 'quantity', sortable: true },
+    { name: 'Actions',  cell:IconDatatable }
   ];
 
   // const conditionalRowStyles = [
@@ -37,7 +41,7 @@ function StockList() {
   return (
     <div>
       <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto mt-72">
-        <div className="content bg-neutral  rounded-md shadow-md ml-80 md:ml-40 p-14 w-11/12">
+        <div className="content bg-neutral  rounded-md  shadow-md ml-80 md:ml-40 -mr-64 p-14 w-11/12">
           <h1 className='text-2xl font-semibold font-serif'>Liste de stock</h1>
           <DataTable 
             columns={columns}
