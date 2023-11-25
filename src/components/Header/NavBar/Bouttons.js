@@ -15,7 +15,7 @@ const Buttons = ({ activeTab, openTab }) => {
           <nav className="flex justify-between items-center h-full">
             <div className="flex justify-normal items-center h-full">
               <div
-                className={`font-bold w-60 text-center text-white pt-5 pb-5 hover:bg-white hover:border-b hover:text-black hover:border-black cursor-pointer ${activeTab === 'tab1' ? 'bg-white hover:border-b border-b text-black  border-black cursor-pointer' : ''}`}
+                className={`font-bold w-60 text-center  pt-5 pb-5 hover:bg-white hover:border-b hover:text-black hover:border-black cursor-pointer ${activeTab === 'tab1' ? 'text-black bg-white hover:border-b border-b   border-black cursor-pointer' : ''}`}
                 onClick={() => openTab('tab1')}
               >
                 Création de compte
