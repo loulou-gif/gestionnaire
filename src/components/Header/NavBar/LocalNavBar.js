@@ -8,17 +8,17 @@ const Buttons = ({ activeTab, openTab }) => {
   return (
     <div>
       <header className="ml-72 w-10/11">
-        <div className="bg-blue-900">
+        <div className="bg-sky-950">
           <nav className="flex justify-between items-center h-full">
             <div className="flex justify-normal items-center h-full">
               <div
-                className={`font-bold w-60 text-center text-white pt-5 pb-5 hover:bg-white hover:border-b hover:text-black hover:border-black cursor-pointer ${activeTab === 'tab1' ? 'bg-white hover:border-b border-b text-black  border-black cursor-pointer' : ''}`}
+                className={`font-bold w-60 text-center pt-5 pb-5 text-white hover:bg-gray-400 hover:text-white hover:border-b hover:border-black cursor-pointer ${activeTab === 'tab1' ? 'bg-gray-400 hover:border-b border-b text-white  border-black cursor-pointer' : ''}`}
                 onClick={() => openTab('tab1')}
               >
                 Création de Local
               </div>
               <div
-                className={`font-bold w-60 text-center text-white pt-5 pb-5 hover:bg-white hover:border-b hover:text-black hover:border-black cursor-pointer ${activeTab === 'tab2' ? 'bg-white hover:border-b border-b text-black  border-black cursor-pointer' : ''}`}
+                className={`font-bold w-60 text-center pt-5 pb-5 text-white hover:bg-gray-400 hover:text-white hover:border-b hover:border-black cursor-pointer ${activeTab === 'tab2' ? 'bg-gray-400 hover:border-b border-b text-white  border-black cursor-pointer' : ''}`}
                 onClick={() => openTab('tab2')}
               >
                 Liste des locaux
