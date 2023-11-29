@@ -121,85 +121,30 @@ function CreateProduct() {
         <div className="content bg-neutral-300 rounded-md shadow-md ml-64 p-14 ">
           <form className="" onSubmit={handleSubmit}>
             <div className="">
-              <input
-                className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600"
-                type="text"
-                value={product.name}
-                name="name"
-                placeholder="Nom du produit"
-                onChange={handleInputChange}
-              />
-              <input
-                className="m-5 p-2 w-72 rounded-lg outline-0 bg-gray-200 text-neutral-600"
-                type="text"
-                value={product.serial_number}
-                name="serial_number"
-                placeholder="numéreau de série"
-                onChange={handleInputChange}
-                disabled
-              />
+              <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="text" value={product.name} name="name" placeholder="Nom du produit" onChange={handleInputChange} />
+              <input className="m-5 p-2 w-72 rounded-lg outline-0 bg-gray-200 text-neutral-600" type="text" value={product.serial_number} name="serial_number" placeholder="numéreau de série" onChange={handleInputChange} disabled />
             </div>
             <div className="">
-              <input
-                className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600"
-                type="text"
-                value={product.details}
-                name="details"
-                placeholder="Description"
-                onChange={handleInputChange}
-              />
+              <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="text" value={product.details} name="details" placeholder="Description" onChange={handleInputChange} />
             </div>
             <div className="">
-              <select
-                className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600"
-                value={product.category}
-                name="category"
-                onChange={handleInputChange}
-              >
-                <option value="Catégorie">catégorie</option>
-                {categories}
+              <select className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" value={product.category} name="category" onChange={handleInputChange}
+              > <option value="Catégorie">catégorie</option> {categories}
               </select>
-              <select
-                className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600"
-                value={product.status}
-                name="status"
-                onChange={handleInputChange}
-              >
-                <option value="Status">Status</option>
-                {statuts}
+              <select className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" value={product.status} name="status" onChange={handleInputChange}
+              > <option value="Status">Status</option> {statuts}
               </select>
             </div>
 
             <div className="">
-              <select
-                className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600"
-                value={product.location}
-                name="location"
-                onChange={handleInputChange}
-              >
-                <option value="Emplacement">Emplacement</option>
-                {locations}
+              <select className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" value={product.location} name="location" onChange={handleInputChange}
+              > <option value="Emplacement">Emplacement</option> {locations}
               </select>
-              <input
-                className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600"
-                type="number"
-                value={product.quantity}
-                name="quantity"
-                placeholder="quantité (Exp: 10)"
-                onChange={handleInputChange}
-              />
+              <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="number" value={product.quantity} name="quantity" placeholder="quantité (Exp: 10)" onChange={handleInputChange} />
             </div>
             <div className="flex justify-center">
-              <input
-                className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600"
-                type="file"
-                name="image"
-                accept="image/*"
-                onChange={handleInputChange}
-              />
-              <button className="m-5 mb-0 p-2 w-72 bg-neutral-400 rounded-lg text-center text-white hover:bg-neutral-500">
-                ENREGISTRER
-              </button>
+              <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600"  type="file" name="image" accept="image/*" onChange={handleInputChange} />
+              <button className="m-5 mb-0 p-2 w-72 bg-neutral-400 rounded-lg text-center text-white hover:bg-neutral-500"> ENREGISTRER </button>
             </div>
           </form>
         </div>
