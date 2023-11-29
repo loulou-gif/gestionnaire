@@ -1,4 +1,4 @@
-import accountIcone from "../../assets/icone/user.png";
+import { VscAccount } from "react-icons/vsc";
 import { BiLogOut } from 'react-icons/bi';
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
@@ -31,7 +31,7 @@ function Icones() {
 
     return (
         <div className="flex justify-end items-center h-full" ref={menuRef}>
-            <img src={accountIcone} alt="comptes" className="w-10 pr-3 mr-5 cursor-pointer" onClick={() => { setMenu(!menu) }} />
+            <VscAccount className="text-gray-400 mr-5 text-5xl cursor-pointer" onClick={() => { setMenu(!menu) }} />
             <div className={`dropdown-menu list-none text-center ${menu ? 'active' : 'inactive'}`}>
                 <h3 className="font-bold pb-3">Menu user</h3>
                 <li className="border-t pt-3 flex cursor-pointer" onClick={logout} >
