@@ -122,7 +122,7 @@ function CreateUser() {
 
             </div>
             <div className="flex justify-center">
-              <button className="m-5 mb-0 p-2 w-72 bg-neutral-400 rounded-lg text-center text-white hover:bg-neutral-500"> ENREGISTRER
+              <button className="m-5 mb-0 p-2 w-72 bg-neutral-400 rounded-lg duration-300 hover:duration-300 text-center text-white hover:bg-neutral-500"> ENREGISTRER
               </button>
             </div>
           </form>

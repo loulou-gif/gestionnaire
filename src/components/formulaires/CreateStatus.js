@@ -6,6 +6,7 @@ function CreateStatus() {
     const [statut, setStatut] = useState({
         name: '',
         details: '',
+        identifiant: '',
         // ... d'autres champs du formulaire
     });
     function handleInputChange(event) {
@@ -21,7 +22,8 @@ function CreateStatus() {
             // Réinitialisez l'état du formulaire ou effectuez d'autres actions nécessaires.
             setStatut({
                 name:"",
-                details:""
+                details:"",
+                identifiant:"",
             })
           })
           .catch(error => {
@@ -42,12 +44,16 @@ function CreateStatus() {
                             <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" value={statut.details } type="textarea" name="details" placeholder="Description du status" onChange={handleInputChange}/>
                             
                         </div>
+                        <div className="">
+                            <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" value={statut.identifiant } type="number" name="identifiant" placeholder="Rentrez l'identifiant" onChange={handleInputChange}/>
+                            
+                        </div>
                         {/* <div className="">
                             <input className="m-5 p-2 w-64 rounded-lg outline-0 text-neutral-600" type="password" name="password" placeholder="Mot de passe"/>
                             <input className="m-5 p-2 w-64 rounded-lg outline-0 text-neutral-600" type="password" name="password" placeholder="confirmer mot de passe"/>
                         </div> */}
                         <div className="flex justify-center">
-                            <button className="m-5 mb-0 p-2 w-72 bg-neutral-400 rounded-lg text-center text-white hover:bg-neutral-500"  >ENREGISTRER</button>
+                            <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-neutral-400 rounded-lg text-center text-white hover:bg-neutral-500"  >ENREGISTRER</button>
                         </div>
                     </form>
                 </div>

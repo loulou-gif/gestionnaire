@@ -53,7 +53,7 @@ function Connexion() {
                         </div>
 
                         <div className="flex justify-end">
-                            <button className="w-28 pt-2 pb-2 mb-3 rounded-md bg-yellow-600 hover:bg-yellow-700  text-white">CONNEXION</button>
+                            <button className="w-28 pt-2 pb-2 mb-3 rounded-md duration-300 hover:duration-300 bg-yellow-600 hover:bg-yellow-700  text-white">CONNEXION</button>
                         </div>
                         <div className="">
                             <p className="w-64">Mot de passe oublié? Contactez votre administrateur.</p>
