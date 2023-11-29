@@ -3,11 +3,11 @@ import DataTable from 'react-data-table-component';
 
 function ConnexionList() {
   const columns = [
-    { name: 'Name', selector: 'name', sortable: true },
-    { name: 'Email', selector: 'email', sortable: true },
-    { name: 'Tel', selector: 'tel', sortable: true },
-    { name: 'Direction', selector: 'direction', sortable: true },
-    { name: 'Ville', selector: 'ville', sortable: true }
+    { name: 'Name', cell:row => ['name'], sortable: true },
+    { name: 'Email', cell:row => ['email'], sortable: true },
+    { name: 'Tel', cell:row => ['tel'], sortable: true },
+    { name: 'Direction', cell:row => ['direction'], sortable: true },
+    { name: 'Ville', cell:row => ['ville'], sortable: true }
   ];
 
   const data = [

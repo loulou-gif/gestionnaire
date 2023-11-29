@@ -18,8 +18,8 @@ function StockList() {
   }, []);
 
   const columns = [
-    { name: 'Status', selector: 'name', sortable: true, width: "150px" },
-    { name: 'details', selector: 'details', sortable: true, width: "350px" },
+    { name: 'Status', cell:row => ['name'], sortable: true, width: "150px" },
+    { name: 'details', cell:row => ['details'], sortable: true, width: "350px" },
     { name: 'Action', width: "80px", cell:IconDatatable},
   ];
 
