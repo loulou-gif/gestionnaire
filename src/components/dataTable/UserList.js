@@ -45,10 +45,7 @@ function UserList() {
       <div className="tab-content grid grid-rows-auto grid-  rows-1 grid-rows-auto mt-72">
         <div className="content bg-neutral  rounded-md shadow-md ml-80 md:ml-40 p-14 w-10/12">
         <h1 className='text-2xl font-semibold font-serif'>liste users</h1>
-          <DataTable columns={columns} data={user} pagination paginationPerPage={3} highlightOnHover paginationResetDefaultPage noHeader subHeader subHeaderComponent={<input
-                type="text"
-                placeholder="Rechercher..."
-                className="p-2 h-8 border border-gray-300"
+          <DataTable columns={columns} data={user} pagination paginationPerPage={3} highlightOnHover paginationResetDefaultPage noHeader subHeader subHeaderComponent={<input type="text" placeholder="Rechercher..." className="p-2 h-8 border border-gray-300"
               />
             }
           />
