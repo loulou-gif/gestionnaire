@@ -20,8 +20,8 @@ function UserList() {
       });
   }, []);
   const columns = [
-    { name: 'Name', cell:row => row['last_name'], sortable: true },
-    { name: 'Username', cell:row => row['username'], sortable: true, width: "130px" },
+    { name: 'Name', cell:row => row['username'], sortable: true },
+    { name: 'Prénoms', cell:row => row['last_name'], sortable: true, width: "130px" },
     { name: 'Email', cell:row => row['email'], sortable: true ,width: "350px"},
     { name: 'Action', cell:IconDatatable},
   ];

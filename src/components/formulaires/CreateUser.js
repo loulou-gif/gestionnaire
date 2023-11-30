@@ -59,8 +59,11 @@ function CreateUser() {
             console.log('user create succesfully', response.data);
             console.log(account)
             setAccount({
-              name: "",
-              details: "",
+              username:"",
+              last_name:"",
+              email:"",
+              // is_staff:"",
+              password:"",
               // ... réinitialisez d'autres champs si nécessaire
           });
         })
