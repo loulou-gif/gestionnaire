@@ -30,17 +30,17 @@ function SuperAdmin() {
                                 </Link>
                                 <ul className="flex flex-col">
                                     <Link to="/accueil" id="Gest" onClick={() => handleLinkClick('Gest')}>
-                                        <li className={`flex select pt-5 pb-3 pl-5 duration-500 hover:border-r cursor-pointer hover:border-black hover:bg-orange-500 ${activeLink === 'Gest' ? 'active border-black bg-orange-500 ' : 'inactive duration-300'}`}>
+                                        <li className={`flex select pt-5 pb-3 pl-5 duration-500 hover:border-r cursor-pointer hover:border-black hover:bg-orange-500 ${activeLink === 'Gest' ? 'active border-black bg-orange-500 border-r ' : 'inactive duration-300'}`}>
                                             <MdManageAccounts className="text-2xl mr-3" /> Gestion des utilisateurs
                                         </li>
                                     </Link>
                                     <Link to="/historique" id="Hist" onClick={() => handleLinkClick('Hist')}>
-                                        <li className={`flex select pt-5 pb-3 pl-5 duration-500 hover:border-r cursor-pointer hover:border-black hover:bg-orange-500 ${activeLink === 'Hist' ? 'active border-black bg-orange-500 ' : 'inactive duration-300'}`}>
+                                        <li className={`flex select pt-5 pb-3 pl-5 duration-500 hover:border-r cursor-pointer hover:border-black hover:bg-orange-500 ${activeLink === 'Hist' ? 'active border-black bg-orange-500 border-r ' : 'inactive duration-300'}`}>
                                             <TbHistoryToggle className="text-2xl mr-3" /> Historiques
                                         </li>
                                     </Link>
                                     <Link to="/stock" id="Stoc" onClick={() => handleLinkClick('Stoc')}>
-                                        <li className={`flex select pt-5 pb-3 pl-5 duration-500 hover:border-r cursor-pointer hover:border-black hover:bg-orange-500 ${activeLink === 'Stoc' ? 'active border-black bg-orange-500' : 'inactive duration-300'}`}>
+                                        <li className={`flex select pt-5 pb-3 pl-5 duration-500 hover:border-r cursor-pointer hover:border-black hover:bg-orange-500 ${activeLink === 'Stoc' ? 'active border-black bg-orange-500 border-r' : 'inactive duration-300'}`}>
                                             <MdOutlineLocalGroceryStore className="text-2xl mr-3" /> Stocks
                                         </li>
                                     </Link>
@@ -51,22 +51,22 @@ function SuperAdmin() {
                                         <div className={`drop-menu transition duration-800 ease-out ${drop ? 'active' : 'inactive'}`}>
                                             <ul>
                                                 <Link to="/parametre" id="para" onClick={() => handleLinkClick('para')}>
-                                                    <li className={`flex select pt-5 duration-500 pb-3 pl-5 w-72 hover:border-r cursor-pointer hover:border-black hover:bg-orange-500 ${activeLink === 'para' ? 'active border-black bg-orange-500' : 'inactive duration-300'}`}>
+                                                    <li className={`flex select pt-5 duration-500 pb-3 pl-5 w-72 hover:border-r cursor-pointer hover:border-black hover:bg-orange-500 ${activeLink === 'para' ? 'active border-r border-black bg-orange-500' : 'inactive duration-300'}`}>
                                                         <RiListSettingsFill className="text-xl mr-3 ml-6" /> Générale
                                                     </li>
                                                 </Link>
                                                 <Link to="/status" id="stat" onClick={() => handleLinkClick('stat')}>
-                                                    <li className={`flex select pt-5 duration-500 pb-3 pl-5 w-72 hover:border-r cursor-pointer hover:border-black hover:bg-orange-500 ${activeLink === 'stat' ? 'active border-black bg-orange-500' : 'inactive duration-300'}`}>
+                                                    <li className={`flex select pt-5 duration-500 pb-3 pl-5 w-72 hover:border-r cursor-pointer hover:border-black hover:bg-orange-500 ${activeLink === 'stat' ? 'active border-r border-black bg-orange-500' : 'inactive duration-300'}`}>
                                                         <GrPowerCycle className="text-xl mr-3 ml-6" /> Status
                                                     </li>
                                                 </Link>
                                                 <Link to="/local" id="local" className="h-full w-full" onClick={() => handleLinkClick('local')}>
-                                                    <li className={`flex select pt-5 duration-500 pb-3 pl-5 w-72 hover:border-r cursor-pointer hover:border-black hover:bg-orange-500 ${activeLink === 'local' ? 'active border-black bg-orange-500' : 'inactive duration-300'}`}>
+                                                    <li className={`flex select pt-5 duration-500 pb-3 pl-5 w-72 hover:border-r cursor-pointer hover:border-black hover:bg-orange-500 ${activeLink === 'local' ? 'active border-r border-black bg-orange-500' : 'inactive duration-300'}`}>
                                                         <MdMyLocation className="text-xl mr-3 ml-6" /> Local
                                                     </li>
                                                 </Link>
                                                 <Link to="/categories" id="cate" onClick={() => handleLinkClick('cate')}>
-                                                    <li className={`flex select pt-5 duration-500 pb-3 pl-5 w-72 hover:border-r cursor-pointer hover:border-black hover:bg-orange-500 ${activeLink === 'cate' ? 'active border-black bg-orange-500' : 'inactive duration-300'}`}>
+                                                    <li className={`flex select pt-5 duration-500 pb-3 pl-5 w-72 hover:border-r cursor-pointer hover:border-black hover:bg-orange-500 ${activeLink === 'cate' ? 'active border-r border-black bg-orange-500' : 'inactive duration-300'}`}>
                                                         <MdCategory className="text-xl mr-3 ml-6" /> Categories
                                                     </li>
                                                 </Link>
