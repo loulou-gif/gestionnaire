@@ -43,20 +43,20 @@ function Connexion() {
                 <h1>GESTIONNAIRES</h1>
             </div>
             <div className="flex justify-end h-screen">
-                <div className="h-96 opacity-95  bg-neutral-200 p-16 mt-48 rounded-md">
-                    <form className="mt-8" method="POST"  onSubmit={handleSubmit}>
+                <div className="h-3/6 opacity-95   bg-neutral-200 pl-16 pr-16 pt-20 pb-68 mt-48 rounded-md">
+                    <form className="mt-2" method="POST"  onSubmit={handleSubmit}>
                         <div className="pb-5">
-                            <input className="w-64 outline-0 rounded-md bg-neutral-300 pt-2 pb-2 pl-5" placeholder="Nom d'utilisateur" type="text" name="username"  value={username} onChange={(e) => setUsername(e.target.value)}/>
+                            <input className="w-11/12 mt-2 mb-2  outline-0 rounded-md bg-neutral-300 pt-4 pb-4 pl-5" placeholder="Nom d'utilisateur" type="text" name="username"  value={username} onChange={(e) => setUsername(e.target.value)}/>
                         </div>
-                        <div className="w-64 pb-5">
-                            <input className="w-64 outline-0 rounded-md bg-neutral-300 pt-2 pb-2 pl-5" placeholder="Password" type="password" name="password"  value={password} onChange={(e) => setPassword(e.target.value)}/>
+                        <div className="w-92 pb-5">
+                            <input className="w-11/12 mt-2 mb-2  outline-0 rounded-md bg-neutral-300 pt-4 pb-4 pl-5" placeholder="Password" type="password" name="password"  value={password} onChange={(e) => setPassword(e.target.value)}/>
                         </div>
 
-                        <div className="flex justify-end">
-                            <button className="w-28 pt-2 pb-2 mb-3 rounded-md duration-300 hover:duration-300 bg-yellow-600 hover:bg-yellow-700  text-white">CONNEXION</button>
+                        <div className="flex justify-end w-11/12">
+                            <button className="w-28 pt-2 mr-15 pb-2 mb-3 rounded-md duration-300 hover:duration-300 bg-yellow-600 hover:bg-yellow-700  text-white">CONNEXION</button>
                         </div>
                         <div className="">
-                            <p className="w-64">Mot de passe oublié? Contactez votre administrateur.</p>
+                            <p className="w-11/12 pb-20">Mot de passe oublié? Contactez votre administrateur.</p>
                         </div>
                     </form>
                 </div>

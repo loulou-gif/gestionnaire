@@ -43,24 +43,7 @@ function StockList() {
       <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto mt-72">
         <div className="content bg-neutral  rounded-md  shadow-md ml-80 md:ml-40 -mr-64 p-14 w-11/12">
           <h1 className='text-2xl font-semibold font-serif'>Liste de stock</h1>
-          <DataTable 
-            columns={columns}
-            data={product}
-            pagination
-            paginationPerPage={5}
-            highlightOnHover
-            paginationResetDefaultPage
-            noHeader
-            subHeader
-            subHeaderComponent={
-              <input
-                type="text"
-                placeholder="Rechercher..."
-                className="p-2 border border-gray-300"
-              />
-            }
-            // conditionalRowStyles={conditionalRowStyles}
-          />
+          <DataTable   columns={columns}  data={product}  pagination  paginationPerPage={5}  highlightOnHover  paginationResetDefaultPage  noHeader  subHeader  subHeaderComponent={    <input      type="text"      placeholder="Rechercher..."      className="p-2 border border-gray-300"    />  } />
         </div>
       </div>
     </div>
