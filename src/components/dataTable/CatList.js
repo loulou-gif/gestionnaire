@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import DataTable from 'react-data-table-component';
+// import DataTable from 'react-data-table-component';
 // import IconDatatable from "./IconDatatable"
 import { MdOutlineDeleteForever, MdOutlineInfo } from 'react-icons/md';
 import { RiEditBoxLine } from "react-icons/ri";
-// import Alert from '@mui/material/Alert';
-// import AlertTitle from '@mui/material/AlertTitle';
+import { Table } from '@mui/material';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 
 function StockList() {
   const [product, setProduct] = useState([]);
@@ -15,6 +19,7 @@ function StockList() {
   const handleDeleted = () => {
     setDelete(!deleted)
     console.log("c'est ok")
+
   }
   const handleModif = () => {
     setModif(!modif)
@@ -23,6 +28,13 @@ function StockList() {
     setInfo(!info)
     console.log("c'est ok")
   }
+  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setDelete(false);
+  };
   useEffect(() => {
     fetch("http://localhost:8000/categories-produits/")
       .then((response) => response.json()) // Ajout des parenthèses ici
@@ -35,19 +47,40 @@ function StockList() {
       });
   }, []);
 
-  const columns = [
-    { name: 'Catégories', cell:row => row['name'], sortable: true, width: "150px" },
-    { name: 'Description', cell:row => row['details'], sortable: true, width: "350px" },
-    { name: 'Action', width: "80px", cell:row => <div className='flex'> <MdOutlineInfo className='text-xl text-green-400 cursor-pointer duration-300' onClick={handleModel} /> <RiEditBoxLine className='text-xl text-orange-400 cursor-pointer' onClick={handleModif} /> <MdOutlineDeleteForever className='text-xl text-red-500 cursor-pointer' onClick={handleDeleted} /></div>},
-  ];
-
   return (
     <div>
       <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto mt-72">
         <div className="content bg-neutral  rounded-md shadow-md ml-80 md:ml-40 p-14 w-11/12">
           <h1 className='text-2xl font-semibold font-serif'>Liste de catégories</h1>
-            <DataTable className='gb-red-500' columns={columns} data={product} pagination paginationPerPage={5} highlightOnHover paginationResetDefaultPage noHeader subHeader subHeaderComponent={   <input     type="text"     placeholder="Rechercher..."     className="p-2 border rounded-md outline-0 border-gray-300"   /> }
-          />
+          <TableContainer>
+        <Table sx={{ maxWidth: 850 }} className="mt-10" size="small" aria-label="a dense table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="left">Catégories</TableCell>
+              <TableCell align="left">Details</TableCell>
+              <TableCell align="left">Actions</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {product.map((row) => (
+              <TableRow
+                key={row.name}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell align="left">{row.name}</TableCell>
+                <TableCell align="left">{row.details}</TableCell>
+                <TableCell align="left">
+                  <div className='flex justify-end'>
+                    <MdOutlineDeleteForever onClick={handleDeleted} className='text-red-500 cursor-pointer text-2xl'/>
+                    <MdOutlineInfo onClick={handleModel} className='text-blue-500 cursor-pointer text-2xl' />
+                    <RiEditBoxLine onClick={handleModif} className='text-green-400 cursor-pointer text-2xl' />
+                  </div>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
         </div>
       </div>
       {info && 
@@ -102,7 +135,7 @@ function StockList() {
             <h3 className='text-3xl text-center text-white'>SUPPRIMER CATEGORIES</h3>
             <p className='text-xl text-center text-white'>Vous êtes sur le point de supprimer cette catégories. <br/> Cliquez sur "Oui" pour valider l'actions.</p>
             <div className='text-center '>
-              <button className='m-5 mb-0 p-2 w-24 rounded-lg  hover:bg-red-900 duration-300 bg-red-600 text-white'>Oui</button><button className='bg-orange-400 hover:bg-orange-600 duration-300 m-5 mb-0 p-2 w-24 rounded-lg  text-white'>Non</button>
+              <button onClick={handleDeleted} className='m-5 mb-0 p-2 w-24 rounded-lg  hover:bg-red-900 duration-300 bg-red-600 text-white'>Oui</button><button onClick={handleDeleted} className='bg-orange-400 hover:bg-orange-600 duration-300 m-5 mb-0 p-2 w-24 rounded-lg  text-white'>Non</button>
             </div>
         </div>
       </div>}
