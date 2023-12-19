@@ -92,8 +92,8 @@ function StatusList() {
                             </DialogContentText>
                           </DialogContent>
                           <DialogActions className='text-center'>
-                            <button className=' w-20 h-10 bg-red-500 rounded-xl text-white' onClick={handleClose}> Oui</button>
-                            <button className=' w-20 h-10 bg-orange-500 rounded-xl text-white'onClick={handleClose}> Non</button>
+                            <button className=' w-20 h-10 bg-red-500 rounded-xl duration-200 hover:bg-red-700 hover:duration-300 text-white' onClick={handleClose}> Oui</button>
+                            <button className=' w-20 h-10 bg-green-500 rounded-xl duration-200 hover:bg-green-700 hover:duration-300 text-white'onClick={handleClose}> Non</button>
                           </DialogActions>
                       </Dialog>
                     </React.Fragment>
