@@ -7,18 +7,25 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { DialogContent } from '@material-ui/core';
+import { Dialog, DialogActions, DialogContentText, DialogTitle } from '@mui/material';
+
 
 function StockList() {
   const [product, setProduct] = useState([]);
   const [info, setInfo] = useState(false)
   const [modif, setModif] = useState(false)
-  const [deleted, setDelete] = useState(false)
+  const [open, setOpen] = useState(false)
 
-  const handleDeleted = () => {
-    setDelete(!deleted)
-    console.log("c'est ok")
-
+  const handleOpenAlert = () => {
+    setOpen(true)
   }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+ 
   const handleModif = () => {
     setModif(!modif)
   }
@@ -82,7 +89,28 @@ function StockList() {
                 <TableCell align="left">{row.quantity}</TableCell>
                 <TableCell align="left">
                   <div className='flex justify-end'>
-                    <MdOutlineDeleteForever onClick={handleDeleted} className='text-red-500 cursor-pointer text-2xl'/>
+                  <React.Fragment>
+                      <MdOutlineDeleteForever onClick={handleOpenAlert} className='text-red-500 cursor-pointer text-2xl'/>
+                      <Dialog 
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                      >
+                          <DialogTitle id="alert-dialog-title" className='font-bold text-2xl'>
+                            SUPPRESSION 
+                          </DialogTitle>
+                          <DialogContent>
+                            <DialogContentText>
+                              Vous êtes sur le point de supprimer cet élément. Cliquez sur "Oui" pour valider.
+                            </DialogContentText>
+                          </DialogContent>
+                          <DialogActions className='text-center'>
+                            <button className=' w-20 h-10 bg-red-500 rounded-xl duration-200 hover:bg-red-700 hover:duration-300 text-white' onClick={handleClose}> Oui</button>
+                            <button className=' w-20 h-10 bg-green-500 rounded-xl duration-200 hover:bg-green-700 hover:duration-300 text-white'onClick={handleClose}> Non</button>
+                          </DialogActions>
+                      </Dialog>
+                    </React.Fragment>
                     <MdOutlineInfo onClick={handleModel} className='text-blue-500 cursor-pointer text-2xl' />
                     <RiEditBoxLine onClick={handleModif} className='text-green-400 cursor-pointer text-2xl' />
                   </div>
