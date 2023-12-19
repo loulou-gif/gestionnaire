@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import DataTable from 'react-data-table-component';
-import IconDatatable from "./IconDatatable"
+import { MdOutlineDeleteForever, MdOutlineInfo } from 'react-icons/md';
+import { RiEditBoxLine } from "react-icons/ri";
+import { Table } from '@mui/material';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 function LocauxList() {
   const [product, setProduct] = useState([]);
 
@@ -16,34 +22,58 @@ function LocauxList() {
       });
   }, []);
 
-  const columns = [
-    { name: 'Locaux', cell:row => ['name'], sortable: true, width: "150px" },
-    { name: 'Details', cell:row => ['details'], sortable: true, width: "350px" },
-    { name: 'Action',width: "80px", cell:IconDatatable},
-  ];
+
+  const [info, setInfo] = useState(false)
+  const [modif, setModif] = useState(false)
+  const [deleted, setDelete] = useState(false)
+
+  const handleDeleted = () => {
+    setDelete(!deleted)
+    console.log("c'est ok")
+
+  }
+  const handleModif = () => {
+    setModif(!modif)
+  }
+  const handleModel = () => {
+    setInfo(!info)
+    console.log("c'est ok")
+  }
 
   return (
     <div>
       <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto mt-72">
         <div className="content bg-neutral  rounded-md shadow-md ml-80 md:ml-40 p-14 w-11/12">
           <h1 className='text-2xl font-semibold font-serif'>Liste de stock</h1>
-          <DataTable 
-            columns={columns}
-            data={product}
-            pagination
-            paginationPerPage={5}
-            highlightOnHover
-            paginationResetDefaultPage
-            noHeader
-            subHeader
-            subHeaderComponent={
-              <input
-                type="text"
-                placeholder="Rechercher..."
-                className="p-2 border border-gray-300"
-              />
-            }
-          />
+          <TableContainer>
+        <Table sx={{ maxWidth: 850 }} className="mt-10" size="small" aria-label="a dense table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="left">Locaux</TableCell>
+              <TableCell align="left">Details</TableCell>
+              <TableCell align="left">Actions</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {product.map((row) => (
+              <TableRow
+                key={row.name}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell align="left">{row.name}</TableCell>
+                <TableCell align="left">{row.details}</TableCell>
+                <TableCell align="left">
+                  <div className='flex justify-end'>
+                    <MdOutlineDeleteForever onClick={handleDeleted} className='text-red-500 cursor-pointer text-2xl'/>
+                    <MdOutlineInfo onClick={handleModel} className='text-blue-500 cursor-pointer text-2xl' />
+                    <RiEditBoxLine onClick={handleModif} className='text-green-400 cursor-pointer text-2xl' />
+                  </div>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
         </div>
       </div>
     </div>
