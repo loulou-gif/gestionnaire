@@ -49,7 +49,8 @@ function StatusList() {
           <TableHead>
             <TableRow>
               <TableCell align="left">Status</TableCell>
-              <TableCell align="left">Details</TableCell>
+              <TableCell align="left">Nombre</TableCell>
+              <TableCell align="left">Détails</TableCell>
               <TableCell align="left">Actions</TableCell>
             </TableRow>
           </TableHead>
@@ -60,6 +61,7 @@ function StatusList() {
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell align="left">{row.name}</TableCell>
+                <TableCell align="left">{row.identifiant}</TableCell>
                 <TableCell align="left">{row.details}</TableCell>
                 <TableCell align="left">
                   <div className='flex justify-end'>
