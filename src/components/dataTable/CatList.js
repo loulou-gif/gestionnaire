@@ -10,7 +10,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
-function StockList() {
+function CatList() {
   const [product, setProduct] = useState([]);
   const [info, setInfo] = useState(false)
   const [modif, setModif] = useState(false)
@@ -28,13 +28,13 @@ function StockList() {
     setInfo(!info)
     console.log("c'est ok")
   }
-  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
-    if (reason === 'clickaway') {
-      return;
-    }
+  // const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+  //   if (reason === 'clickaway') {
+  //     return;
+  //   }
 
-    setDelete(false);
-  };
+  //   setDelete(false);
+  // };
   useEffect(() => {
     fetch("http://localhost:8000/categories-produits/")
       .then((response) => response.json()) // Ajout des parenthèses ici
@@ -144,4 +144,4 @@ function StockList() {
   );
 }
 
-export default StockList;
+export default CatList;

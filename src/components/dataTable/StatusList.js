@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
 import IconDatatable from "./IconDatatable"
 
-function StockList() {
+function StatusList() {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
@@ -51,4 +51,4 @@ function StockList() {
   );
 }
 
-export default StockList;
+export default StatusList;
