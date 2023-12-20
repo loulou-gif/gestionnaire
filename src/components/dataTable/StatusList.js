@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { MdOutlineDeleteForever, MdOutlineInfo } from 'react-icons/md';
 import { RiEditBoxLine } from "react-icons/ri";
-import { Dialog, DialogActions, DialogContentText, DialogTitle, Table } from '@mui/material';
+import { Dialog, DialogActions, DialogContentText, DialogTitle, Table, TablePagination } from '@mui/material';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { DialogContent } from '@material-ui/core';
+
+
 
 function StatusList() {
   const [product, setProduct] = useState([]);
@@ -36,6 +38,19 @@ function StatusList() {
     setInfo(!info)
     console.log("c'est ok")
   }
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event: unknown, newPage: number) => {
+    setPage(newPage);
+  };
+  
+
+  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+  
 
   useEffect(() => {
     fetch("http://localhost:8000/status-produit/")
@@ -99,12 +114,15 @@ function StatusList() {
                     </React.Fragment>
                     <MdOutlineInfo onClick={handleModel} className='text-blue-500 cursor-pointer text-2xl' />
                     <RiEditBoxLine onClick={handleModif} className='text-green-400 cursor-pointer text-2xl' />
+                    
                   </div>
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
+          
         </Table>
+        <TablePagination rowsPerPageOptions={[5, 10]} component="div" count={product.length} rowsPerPage={rowsPerPage} page={page} onPageChange={handleChangePage} onRowsPerPageChange={handleChangeRowsPerPage}  />
       </TableContainer>
         </div>
       </div>
