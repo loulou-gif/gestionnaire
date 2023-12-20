@@ -70,7 +70,7 @@ function StatusList() {
         <div className="content bg-neutral  rounded-md shadow-md ml-80 md:ml-40 p-14 w-11/12">
           <h1 className='text-2xl font-semibold font-serif'>Liste de stock</h1>
           <TableContainer>
-        <Table sx={{ maxWidth: 850 }} className="mt-10" size="small" aria-label="a dense table">
+        <Table sx={{ maxWidth: 850 }}  className="mt-10" size="small" stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
               <TableCell align="left">Status</TableCell>
@@ -80,9 +80,9 @@ function StatusList() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {product.map((row) => (
+            {product.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
               <TableRow
-                key={row.name}
+                hover role="checkbox" tabIndex={-1} key={row.code}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell align="left">{row.name}</TableCell>
