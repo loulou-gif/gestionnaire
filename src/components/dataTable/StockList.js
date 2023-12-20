@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MdOutlineDeleteForever, MdOutlineInfo } from 'react-icons/md';
 import { RiEditBoxLine } from "react-icons/ri";
-import { Table } from '@mui/material';
+import { Table,TablePagination } from '@mui/material';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
@@ -46,6 +46,18 @@ function StockList() {
       });
   }, []);
 
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event: unknown, newPage: number) => {
+    setPage(newPage);
+  };
+  
+
+  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
  
 
   // const conditionalRowStyles = [
@@ -76,9 +88,9 @@ function StockList() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {product.map((row) => (
+            {product.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
               <TableRow
-                key={row.name}
+                hover role="checkbox" tabIndex={-1} key={row.code}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell align="left">{row.name}</TableCell>
@@ -119,6 +131,7 @@ function StockList() {
             ))}
           </TableBody>
         </Table>
+        <TablePagination rowsPerPageOptions={[5, 10]} component="div" count={product.length} rowsPerPage={rowsPerPage} page={page} onPageChange={handleChangePage} onRowsPerPageChange={handleChangeRowsPerPage}  />
       </TableContainer>
         </div>
       </div>

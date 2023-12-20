@@ -3,23 +3,28 @@ import React, { useEffect, useState } from 'react';
 // import IconDatatable from "./IconDatatable"
 import { MdOutlineDeleteForever, MdOutlineInfo } from 'react-icons/md';
 import { RiEditBoxLine } from "react-icons/ri";
-import { Table } from '@mui/material';
+import { Table, TablePagination } from '@mui/material';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { Dialog, DialogActions, DialogContentText, DialogTitle, DialogContent } from '@mui/material';
+
+
 
 function CatList() {
   const [product, setProduct] = useState([]);
   const [info, setInfo] = useState(false)
   const [modif, setModif] = useState(false)
-  const [deleted, setDelete] = useState(false)
+  const [open, setOpen] = useState(false)
 
-  const handleDeleted = () => {
-    setDelete(!deleted)
-    console.log("c'est ok")
+  const handleOpenAlert = () => {
+    setOpen(true)
+  }
 
+  const handleClose = () => {
+    setOpen(false)
   }
   const handleModif = () => {
     setModif(!modif)
@@ -28,13 +33,18 @@ function CatList() {
     setInfo(!info)
     console.log("c'est ok")
   }
-  // const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
-  //   if (reason === 'clickaway') {
-  //     return;
-  //   }
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-  //   setDelete(false);
-  // };
+  const handleChangePage = (event: unknown, newPage: number) => {
+    setPage(newPage);
+  };
+  
+
+  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
   useEffect(() => {
     fetch("http://localhost:8000/categories-produits/")
       .then((response) => response.json()) // Ajout des parenthèses ici
@@ -71,7 +81,28 @@ function CatList() {
                 <TableCell align="left">{row.details}</TableCell>
                 <TableCell align="left">
                   <div className='flex justify-end'>
-                    <MdOutlineDeleteForever onClick={handleDeleted} className='text-red-500 cursor-pointer text-2xl'/>
+                  <React.Fragment>
+                      <MdOutlineDeleteForever onClick={handleOpenAlert} className='text-red-500 cursor-pointer text-2xl'/>
+                      <Dialog 
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                      >
+                          <DialogTitle id="alert-dialog-title" className='font-bold text-2xl'>
+                            SUPPRESSION 
+                          </DialogTitle>
+                          <DialogContent>
+                            <DialogContentText>
+                              Vous êtes sur le point de supprimer cet élément. Cliquez sur "Oui" pour valider.
+                            </DialogContentText>
+                          </DialogContent>
+                          <DialogActions className='text-center'>
+                            <button className=' w-20 h-10 bg-red-500 rounded-xl duration-200 hover:bg-red-700 hover:duration-300 text-white' onClick={handleClose}> Oui</button>
+                            <button className=' w-20 h-10 bg-green-500 rounded-xl duration-200 hover:bg-green-700 hover:duration-300 text-white'onClick={handleClose}> Non</button>
+                          </DialogActions>
+                      </Dialog>
+                    </React.Fragment>
                     <MdOutlineInfo onClick={handleModel} className='text-blue-500 cursor-pointer text-2xl' />
                     <RiEditBoxLine onClick={handleModif} className='text-green-400 cursor-pointer text-2xl' />
                   </div>
@@ -80,66 +111,10 @@ function CatList() {
             ))}
           </TableBody>
         </Table>
+        <TablePagination rowsPerPageOptions={[5, 10]} component="div" count={product.length} rowsPerPage={rowsPerPage} page={page} onPageChange={handleChangePage} onRowsPerPageChange={handleChangeRowsPerPage}  />
       </TableContainer>
         </div>
-      </div>
-      {info && 
-      <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto -mt-60 ">
-      <div className="content bg-neutral-300 rounded-md shadow-md ml-64 p-14  ">
-          <form className=""   >
-              <div className="">
-                  <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600"   type="text" name="name" placeholder="Nom de la categorie"  />
-                  
-              </div>
-              <div className="">
-                  <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600"  type="text" name="details" placeholder="Description" />
-                  
-              </div>
-              {/* <div className="">
-                  <input className="m-5 p-2 w-64 rounded-lg outline-0 text-neutral-600" type="password" name="password" placeholder="Mot de passe"/>
-                  <input className="m-5 p-2 w-64 rounded-lg outline-0 text-neutral-600" type="password" name="password" placeholder="confirmer mot de passe"/>
-              </div> */}
-              <div className="flex justify-center">
-                  <button className="m-5 mb-0 p-2 w-72 bg-neutral-400 rounded-lg text-center text-white duration-300 hover:duration-300 hover:bg-neutral-500"  >ENREGISTRER</button>
-              </div>
-          </form>
-      </div>
-  </div>
-      }
-      {modif && 
-      <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto -mt-60 ">
-      <div className="content bg-neutral-300 rounded-md shadow-md ml-64 p-14  ">
-          <form className=""   >
-              <div className="">
-                  <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600"   type="text" name="name" placeholder="Nom de la categorie"  />
-                  
-              </div>
-              <div className="">
-                  <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600"  type="text" name="details" placeholder="Description" />
-                  
-              </div>
-              {/* <div className="">
-                  <input className="m-5 p-2 w-64 rounded-lg outline-0 text-neutral-600" type="password" name="password" placeholder="Mot de passe"/>
-                  <input className="m-5 p-2 w-64 rounded-lg outline-0 text-neutral-600" type="password" name="password" placeholder="confirmer mot de passe"/>
-              </div> */}
-              <div className="flex justify-center">
-                  <button className="m-5 mb-0 p-2 w-72 bg-neutral-400 rounded-lg text-center text-white duration-300 hover:duration-300 hover:bg-neutral-500"  >ENREGISTRER</button>
-              </div>
-          </form>
-      </div>
-  </div>}
-
-      {deleted && 
-      <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto -mt-10 ">
-        <div className="content grid-rows-1 grid-rows-auto  bg-sky-950 rounded-md shadow-md ml-64 p-14 pt-10 ">
-            <h3 className='text-3xl text-center text-white'>SUPPRIMER CATEGORIES</h3>
-            <p className='text-xl text-center text-white'>Vous êtes sur le point de supprimer cette catégories. <br/> Cliquez sur "Oui" pour valider l'actions.</p>
-            <div className='text-center '>
-              <button onClick={handleDeleted} className='m-5 mb-0 p-2 w-24 rounded-lg  hover:bg-red-900 duration-300 bg-red-600 text-white'>Oui</button><button onClick={handleDeleted} className='bg-orange-400 hover:bg-orange-600 duration-300 m-5 mb-0 p-2 w-24 rounded-lg  text-white'>Non</button>
-            </div>
-        </div>
-      </div>}
-      
+      </div>      
     </div>
   );
 }

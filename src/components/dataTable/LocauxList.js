@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { MdOutlineDeleteForever, MdOutlineInfo } from 'react-icons/md';
 import { RiEditBoxLine } from "react-icons/ri";
-import { Table } from '@mui/material';
+import { Table, TablePagination } from '@mui/material';
+import { Dialog, DialogActions, DialogContentText, DialogTitle, DialogContent } from '@mui/material';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
@@ -22,15 +23,17 @@ function LocauxList() {
       });
   }, []);
 
-
+  
   const [info, setInfo] = useState(false)
   const [modif, setModif] = useState(false)
-  const [deleted, setDelete] = useState(false)
+  const [open, setOpen] = useState(false)
 
-  const handleDeleted = () => {
-    setDelete(!deleted)
-    console.log("c'est ok")
+  const handleOpenAlert = () => {
+    setOpen(true)
+  }
 
+  const handleClose = () => {
+    setOpen(false)
   }
   const handleModif = () => {
     setModif(!modif)
@@ -39,7 +42,18 @@ function LocauxList() {
     setInfo(!info)
     console.log("c'est ok")
   }
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
+  const handleChangePage = (event: unknown, newPage: number) => {
+    setPage(newPage);
+  };
+  
+
+  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
   return (
     <div>
       <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto mt-72">
@@ -55,16 +69,37 @@ function LocauxList() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {product.map((row) => (
+            {product.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
               <TableRow
-                key={row.name}
+                hover role="checkbox" tabIndex={-1} key={row.code}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell align="left">{row.name}</TableCell>
                 <TableCell align="left">{row.details}</TableCell>
                 <TableCell align="left">
                   <div className='flex justify-end'>
-                    <MdOutlineDeleteForever onClick={handleDeleted} className='text-red-500 cursor-pointer text-2xl'/>
+                  <React.Fragment>
+                      <MdOutlineDeleteForever onClick={handleOpenAlert} className='text-red-500 cursor-pointer text-2xl'/>
+                      <Dialog 
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                      >
+                          <DialogTitle id="alert-dialog-title" className='font-bold text-2xl'>
+                            SUPPRESSION 
+                          </DialogTitle>
+                          <DialogContent>
+                            <DialogContentText>
+                              Vous êtes sur le point de supprimer cet élément. Cliquez sur "Oui" pour valider.
+                            </DialogContentText>
+                          </DialogContent>
+                          <DialogActions className='text-center'>
+                            <button className=' w-20 h-10 bg-red-500 rounded-xl duration-200 hover:bg-red-700 hover:duration-300 text-white' onClick={handleClose}> Oui</button>
+                            <button className=' w-20 h-10 bg-green-500 rounded-xl duration-200 hover:bg-green-700 hover:duration-300 text-white'onClick={handleClose}> Non</button>
+                          </DialogActions>
+                      </Dialog>
+                    </React.Fragment>
                     <MdOutlineInfo onClick={handleModel} className='text-blue-500 cursor-pointer text-2xl' />
                     <RiEditBoxLine onClick={handleModif} className='text-green-400 cursor-pointer text-2xl' />
                   </div>
@@ -73,6 +108,8 @@ function LocauxList() {
             ))}
           </TableBody>
         </Table>
+        
+        <TablePagination rowsPerPageOptions={[5, 10]} component="div" count={product.length} rowsPerPage={rowsPerPage} page={page} onPageChange={handleChangePage} onRowsPerPageChange={handleChangeRowsPerPage}  />
       </TableContainer>
         </div>
       </div>
