@@ -74,7 +74,7 @@ function CatList() {
           <TableBody>
             {product.map((row) => (
               <TableRow
-                key={row.name}
+                hover role="checkbox" tabIndex={-1} key={row.code}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell align="left">{row.name}</TableCell>

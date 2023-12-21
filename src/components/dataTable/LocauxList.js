@@ -65,7 +65,7 @@ function LocauxList() {
             <TableRow>
               <TableCell align="left">Locaux</TableCell>
               <TableCell align="left">Details</TableCell>
-              <TableCell align="left">Actions</TableCell>
+              <TableCell align="center">Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -77,7 +77,7 @@ function LocauxList() {
                 <TableCell align="left">{row.name}</TableCell>
                 <TableCell align="left">{row.details}</TableCell>
                 <TableCell align="left">
-                  <div className='flex justify-end'>
+                  <div  className='flex justify-end'>
                   <React.Fragment>
                       <MdOutlineDeleteForever onClick={handleOpenAlert} className='text-red-500 cursor-pointer text-2xl'/>
                       <Dialog 

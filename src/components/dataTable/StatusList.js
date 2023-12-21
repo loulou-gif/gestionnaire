@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MdOutlineDeleteForever, MdOutlineInfo } from 'react-icons/md';
 import { RiEditBoxLine } from "react-icons/ri";
-import { Dialog, DialogActions, DialogContentText, DialogTitle, Table, TablePagination } from '@mui/material';
+import {Dialog, DialogActions, DialogContentText, DialogTitle, Table, TablePagination } from '@mui/material';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
@@ -31,10 +31,14 @@ function StatusList() {
   //   console.log("c'est ok")
 
   // }
-  const handleModif = () => {
-    setModif(!modif)
-  }
   const handleModel = () => {
+    setModif(true)
+  }
+
+  const handleCloseModel = () => {
+    setModif(false)
+  }
+  const handleModif = () => {
     setInfo(!info)
     console.log("c'est ok")
   }
@@ -92,11 +96,7 @@ function StatusList() {
                   <div className='flex justify-end'>
                     <React.Fragment>
                       <MdOutlineDeleteForever onClick={handleOpenAlert} className='text-red-500 cursor-pointer text-2xl'/>
-                      <Dialog 
-                        open={open}
-                        onClose={handleClose}
-                        aria-labelledby="alert-dialog-title"
-                        aria-describedby="alert-dialog-description"
+                      <Dialog  open={open} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description"
                       >
                           <DialogTitle id="alert-dialog-title" className='font-bold text-2xl'>
                             SUPPRESSION 
@@ -110,11 +110,29 @@ function StatusList() {
                             <button className=' w-20 h-10 bg-red-500 rounded-xl duration-200 hover:bg-red-700 hover:duration-300 text-white' onClick={handleClose}> Oui</button>
                             <button className=' w-20 h-10 bg-green-500 rounded-xl duration-200 hover:bg-green-700 hover:duration-300 text-white'onClick={handleClose}> Non</button>
                           </DialogActions>
+                      </Dialog >
+                      
+                      <MdOutlineInfo onClick={handleModel} className='text-blue-500 cursor-pointer text-2xl' />
+                      
+                      <Dialog className='' open={modif} onClose={handleCloseModel} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+                        {/* <Box component="form"sx={{  '& .MuiTextField-root': { m: 1, width: '25ch' },}}noValidateautoComplete="off">
+                        <TextField disabled id="outlined-disabled" label="Status" defaultValue="" />
+                        <TextField disabled id="outlined-disabled" label="Nombre" defaultValue="" />
+                        <TextField disabled id="outlined-disabled" label="Details" defaultValue="" />
+                        </Box> */}
+                        <form className='p-16'>
+                            <h3 className='text-center text-2xl font-bold'>INFORMATIONS SUR LE STATUT</h3>
+                            <input name='Status' className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Titre Status' />
+                            <input name='Nombre' className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600' placeholder='Nombre' />
+                            <input name='Details' className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Details' />
+                            <div className="flex justify-center">
+                              <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-blue-400 rounded-lg text-center text-white hover:bg-blue-500" onClick={handleCloseModel} >Fermer</button>
+                            </div>
+                        </form>
                       </Dialog>
-                    </React.Fragment>
-                    <MdOutlineInfo onClick={handleModel} className='text-blue-500 cursor-pointer text-2xl' />
+                      
                     <RiEditBoxLine onClick={handleModif} className='text-green-400 cursor-pointer text-2xl' />
-                    
+                  </React.Fragment>
                   </div>
                 </TableCell>
               </TableRow>
