@@ -35,12 +35,18 @@ function LocauxList() {
   const handleClose = () => {
     setOpen(false)
   }
-  const handleModif = () => {
-    setModif(!modif)
-  }
   const handleModel = () => {
-    setInfo(!info)
-    console.log("c'est ok")
+    setModif(true)
+  }
+
+  const handleCloseModel = () => {
+    setModif(false)
+  }
+  const handleModif = () => {
+    setInfo(true)
+  }
+  const handleCloseModif = () => {
+    setInfo(false)
   }
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -58,7 +64,7 @@ function LocauxList() {
     <div>
       <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto mt-72">
         <div className="content bg-neutral  rounded-md shadow-md ml-80 md:ml-40 p-14 w-11/12">
-          <h1 className='text-2xl font-semibold font-serif'>Liste de stock</h1>
+          <h1 className='text-2xl font-semibold font-serif'>Liste des locaux</h1>
           <TableContainer>
         <Table sx={{ maxWidth: 850 }} className="mt-10" size="small" aria-label="a dense table">
           <TableHead>
@@ -99,9 +105,31 @@ function LocauxList() {
                             <button className=' w-20 h-10 bg-green-500 rounded-xl duration-200 hover:bg-green-700 hover:duration-300 text-white'onClick={handleClose}> Non</button>
                           </DialogActions>
                       </Dialog>
-                    </React.Fragment>
-                    <MdOutlineInfo onClick={handleModel} className='text-blue-500 cursor-pointer text-2xl' />
+                      <MdOutlineInfo onClick={handleModel} className='text-blue-500 cursor-pointer text-2xl' />
+                      
+                      <Dialog className='' open={modif} onClose={handleCloseModel} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+                        <div className='p-16'>
+                            <h3 className='text-center text-2xl font-bold'>INFORMATIONS SUR LE STATUT</h3>
+                            <input name='name' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Nom du local' />
+                            <input name='Details' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Details' />
+                            <div className="flex justify-center">
+                              <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-blue-400 rounded-lg text-center text-white hover:bg-blue-500" onClick={handleCloseModel} >Fermer</button>
+                            </div>
+                        </div>
+                      </Dialog>
+                      
                     <RiEditBoxLine onClick={handleModif} className='text-green-400 cursor-pointer text-2xl' />
+                    <Dialog className='' open={info} onClose={handleCloseModif} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+                        <div className='p-16'>
+                            <h3 className='text-center text-2xl font-bold'>MODIFIER LE STATUT</h3>
+                            <input name='name'  className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Nom du local' />
+                            <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Details' />
+                            <div className="flex justify-center">
+                              <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-green-400 rounded-lg text-center text-white hover:bg-green-500" onClick={handleCloseModif} >Modifier</button>
+                            </div>
+                        </div>
+                      </Dialog>
+                  </React.Fragment>
                   </div>
                 </TableCell>
               </TableRow>
