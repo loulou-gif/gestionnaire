@@ -94,6 +94,7 @@ function CatList() {
                         onClose={handleClose}
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description"
+                        style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
                       >
                           <DialogTitle id="alert-dialog-title" className='font-bold text-2xl'>
                             SUPPRESSION 
@@ -110,7 +111,7 @@ function CatList() {
                       </Dialog>
                       <MdOutlineInfo onClick={handleModel} className='text-blue-500 cursor-pointer text-2xl' />
                       
-                      <Dialog className='' open={modif} onClose={handleCloseModel} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+                      <Dialog className='' style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }} open={modif} onClose={handleCloseModel} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                         <div className='p-16'>
                             <h3 className='text-center text-2xl font-bold'>INFORMATIONS SUR LE STATUT</h3>
                             <input name='Status' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Titre Status' />
@@ -122,7 +123,7 @@ function CatList() {
                       </Dialog>
                       
                     <RiEditBoxLine onClick={handleModif} className='text-green-400 cursor-pointer text-2xl' />
-                    <Dialog className='' open={info} onClose={handleCloseModif} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+                    <Dialog className='' style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }} open={info} onClose={handleCloseModif} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                         <div className='p-16'>
                             <h3 className='text-center text-2xl font-bold'>MODIFIER LE STATUT</h3>
                             <input name='Status'  className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Titre Status' />
