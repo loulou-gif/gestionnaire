@@ -20,7 +20,7 @@ function CatList() {
   const [info, setInfo] = useState(false)
   const [modif, setModif] = useState(false)
   const [open, setOpen] = useState(false)
-  const [values, setValues] = useState(null)
+  // const [values, setValues] = useState(null)
   // const [id] = useParams()
 
   const handleOpenAlert = () => {
@@ -30,8 +30,8 @@ function CatList() {
   const handleClose = () => {
     setOpen(false)
   }
-  const handleModel = (id) => {
-    setValues(id);
+  const handleModel = () => {
+    // setValues(id);
     setModif(true)
   }
 
