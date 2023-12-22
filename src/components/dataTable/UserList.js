@@ -157,7 +157,7 @@ function UserList() {
             ))}
           </TableBody>
         </Table>
-        <TablePagination rowsPerPageOptions={[4, 8]} component="div" count={user.length} rowsPerPage={rowsPerPage} page={page} onPageChange={handleChangePage} onRowsPerPageChange={handleChangeRowsPerPage}  />
+        <TablePagination rowsPerPageOptions={[5, 10]} component="div" count={user.length} rowsPerPage={rowsPerPage} page={page} onPageChange={handleChangePage} onRowsPerPageChange={handleChangeRowsPerPage}  />
       </TableContainer>
         </div>
       </div>
