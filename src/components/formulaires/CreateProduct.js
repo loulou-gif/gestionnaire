@@ -105,6 +105,7 @@ function CreateProduct() {
           category: "",
           serial_number: "",
           details: "",
+          price: "",
           status: "",
           location: "",
           quantity: "",
@@ -119,7 +120,7 @@ function CreateProduct() {
   return (
     <div>
       <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto mt-72">
-        <div className="content bg-neutral-300 rounded-md shadow-md ml-64 p-14 ">
+        <div className="content bg-zinc-200 rounded-md shadow-md ml-64 p-14 ">
           <form className="" onSubmit={handleSubmit}>
             <div className="">
               <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="text" value={product.name} name="name" placeholder="Nom du produit" onChange={handleInputChange} />
@@ -129,7 +130,7 @@ function CreateProduct() {
               <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="text" value={product.details} name="details" placeholder="Description" onChange={handleInputChange} />
             </div>
             <div className="">
-              <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="number" value={product.cout} name="cout" placeholder="Prix unitaire" onChange={handleInputChange} />
+              <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="number" value={product.price} name="price" placeholder="Prix unitaire" onChange={handleInputChange} />
             </div>
             <div className="">
               <select className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" value={product.category} name="category" onChange={handleInputChange}

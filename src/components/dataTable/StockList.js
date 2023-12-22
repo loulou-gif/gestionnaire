@@ -79,7 +79,7 @@ function StockList() {
         <div className="content bg-neutral  rounded-md  shadow-md ml-80 md:ml-40 -mr-64 p-14 w-11/12">
           <h1 className='text-2xl font-semibold font-serif'>Liste des produits</h1>
           <TableContainer>
-        <Table sx={{ maxWidth: 850 }} className="mt-10" size="small" aria-label="a dense table">
+        <Table sx={{ maxWidth: 980 }} className="mt-10" size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
               <TableCell align="left">Produit</TableCell>
@@ -88,6 +88,7 @@ function StockList() {
               <TableCell align="left">Emplacement</TableCell>
               <TableCell align="left">Image</TableCell>
               <TableCell align="left">Quantité</TableCell>
+              <TableCell align="left"  >Prix unitaire</TableCell>
               <TableCell align="left">Actions</TableCell>
             </TableRow>
           </TableHead>
@@ -103,6 +104,7 @@ function StockList() {
                 <TableCell align="left">{row.status}</TableCell>
                 <TableCell align="left"> <img alt='img' src={row.image} /></TableCell>
                 <TableCell align="left">{row.quantity}</TableCell>
+                <TableCell align="left">{row.price}</TableCell>
                 <TableCell align="left">
                   <div className='flex justify-end'>
                   <React.Fragment>
