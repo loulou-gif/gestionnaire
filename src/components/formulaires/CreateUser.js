@@ -78,31 +78,31 @@ function CreateUser() {
   return (
     <div className="">
       <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto mt-72">
-        <div className="content bg-zinc-200 rounded-md shadow-md ml-64 p-14 ">
+        <div className="content bg-white rounded-md shadow ml-64 p-14 ">
           <form className="" onSubmit={handleSubmit} >
             <div className="">
-              <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="text" value={account.username} name="username" placeholder="Nom d'utilisateur"  onChange={handleInputChange}/>
-              <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="text" value={account.last_name} name="last_name"  placeholder="Nom et Prénoms" onChange={handleInputChange}/>
+              <input className="m-5 p-2 w-72 rounded-lg outline-0 border text-neutral-600" type="text" value={account.username} name="username" placeholder="Nom d'utilisateur"  onChange={handleInputChange}/>
+              <input className="m-5 p-2 w-72 rounded-lg outline-0 border text-neutral-600" type="text" value={account.last_name} name="last_name"  placeholder="Nom et Prénoms" onChange={handleInputChange}/>
             </div>
             <div className="">
-              <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="text" value={account.email} name="email" placeholder="email@mail.log" onChange={handleInputChange}/>
-              {/* <input className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" type="text"  name="userdetail.numero" placeholder="Numéro de téléphone" onChange={handleInputChange}/> */}
+              <input className="m-5 p-2 w-11/12 rounded-lg outline-0 border text-neutral-600" type="text" value={account.email} name="email" placeholder="email@mail.log" onChange={handleInputChange}/>
+              {/* <input className="m-5 p-2 w-72 rounded-lg outline-0 border text-neutral-600" type="text"  name="userdetail.numero" placeholder="Numéro de téléphone" onChange={handleInputChange}/> */}
             </div>
             {/* <div className="">
-              <select className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" value={account.userdetail.direction} name="userdetail.direction" onChange={handleDirectionChange} >
+              <select className="m-5 p-2 w-72 rounded-lg outline-0 border text-neutral-600" value={account.userdetail.direction} name="userdetail.direction" onChange={handleDirectionChange} >
                 <option value='Direction'>Direction</option> 
                 {directionOptions}
               </select>
-              <input className="m-5 p-2 w-72 rounded-lg outline-0 bg-neutral-100 text-neutral-600"  name="managers" placeholder="manager" value={managers.join(", ")} readOnly disabled/>
+              <input className="m-5 p-2 w-72 rounded-lg outline-0 border bg-neutral-100 text-neutral-600"  name="managers" placeholder="manager" value={managers.join(", ")} readOnly disabled/>
             </div> */}
             <div>
-              <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="password" value={account.password} name="password" placeholder="Mot de passe" onChange={handleInputChange}/>
+              <input className="m-5 p-2 w-11/12 rounded-lg outline-0 border text-neutral-600" type="password" value={account.password} name="password" placeholder="Mot de passe" onChange={handleInputChange}/>
               {/* <fieldset className="flex justify-between">
                   <legend>Manager</legend>
                   <div className="flex">
                     <div className="m-5">
                       <input
-                        className="p-2 w-11/12 rounded-lg outline-0 text-neutral-600"
+                        className="p-2 w-11/12 rounded-lg outline-0 border text-neutral-600"
                         type="radio"
                         value={account.is_staff}
                         name="is_staff"
@@ -112,7 +112,7 @@ function CreateUser() {
                     </div>
                     <div className="m-5">
                       <input
-                        className="p-2 w-11/12 rounded-lg outline-0 text-neutral-600"
+                        className="p-2 w-11/12 rounded-lg outline-0 border text-neutral-600"
                         type="radio"
                         value={account.is_staff}
                         name="is_staff"
@@ -125,7 +125,7 @@ function CreateUser() {
 
             </div>
             <div className="flex justify-center">
-              <button className="m-5 mb-0 p-2 w-72 bg-neutral-400 rounded-lg duration-300 hover:duration-300 text-center text-white hover:bg-neutral-500"> ENREGISTRER
+              <button className="m-5 mb-0 p-2 w-72 bg-sky-700 rounded-lg duration-300 hover:duration-300 text-center text-white hover:bg-sky-950"> ENREGISTRER
               </button>
             </div>
           </form>

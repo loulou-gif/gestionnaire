@@ -20,7 +20,10 @@ function CatList() {
   const [info, setInfo] = useState(false)
   const [modif, setModif] = useState(false)
   const [open, setOpen] = useState(false)
-  // const [values, setValues] = useState(null)
+  const [values, setValues] = useState({
+    name:"",
+    details:""
+  })
   // const [id] = useParams()
 
   const handleOpenAlert = () => {
@@ -30,10 +33,12 @@ function CatList() {
   const handleClose = () => {
     setOpen(false)
   }
-  const handleModel = () => {
-    // setValues(id);
-    setModif(true)
+  const handleModel = (id) => {
+    const selectedProduct = product.find((item) => item.id === id);
+    setValues(selectedProduct);
+    setModif(true);
   }
+  
 
   const handleCloseModel = () => {
 
@@ -78,7 +83,7 @@ function CatList() {
   return (
     <div>
       <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto mt-72">
-        <div className="content bg-neutral  rounded-md shadow-md ml-80 md:ml-40 p-14 w-11/12">
+        <div className="content  rounded-md shadow-md ml-80 md:ml-40 p-14 w-11/12">
           <h1 className='text-2xl font-semibold font-serif'>Liste des catégories</h1>
           <TableContainer>
         <Table sx={{ maxWidth: 850 }} className="mt-10" size="small" aria-label="a dense table">
@@ -121,7 +126,7 @@ function CatList() {
                         <div className='p-16'>
                             <h3 className='text-center text-2xl font-bold'>INFORMATIONS SUR LE STATUT</h3>
                             <input name='Status' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Titre Status' />
-                            <input name='Details' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Details' />
+                            <input name='Details' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Details'  />
                             <div className="flex justify-center">
                               <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-blue-400 rounded-lg text-center text-white hover:bg-blue-500" onClick={handleCloseModel} >Fermer</button>
                             </div>
