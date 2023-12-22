@@ -120,7 +120,7 @@ function CatList() {
 
                         <Dialog className='' style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }} open={modif} onClose={handleCloseModel} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                           <div className='p-16'>
-                            <h3 className='text-center text-2xl font-bold'>INFORMATIONS SUR LE STATUT</h3>
+                            <h3 className='text-center text-2xl font-bold'>INFORMATIONS SUR LA CATEGORIE</h3>
                             <input name='Status' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg outline-0 border text-neutral-600' placeholder='Titre Status' value={values.name} />
                             <input name='Details' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg border outline-0 text-neutral-600' placeholder='Details' value={values.details} />
                             <div className="flex justify-center">
@@ -132,7 +132,7 @@ function CatList() {
                         <RiEditBoxLine onClick={() => handleModif(row.name)} className='text-green-400 cursor-pointer text-2xl' />
                         <Dialog className='' style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }} open={info} onClose={handleCloseModif} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                           <div className='p-16'>
-                            <h3 className='text-center text-2xl font-bold'>MODIFIER LE STATUT</h3>
+                            <h3 className='text-center text-2xl font-bold'>MODIFIER LA CATEGORIE</h3>
                             <input name='Status' className='m-5 p-2 w-11/12 h-16 rounded-lg outline-0 border text-neutral-600' placeholder='Titre Status' value={values.name} />
                             <input name='Details' className='m-5 p-2 w-11/12 h-16 rounded-lg border outline-0 text-neutral-600' placeholder='Details' value={values.details} />
                             <div className="flex justify-center">
