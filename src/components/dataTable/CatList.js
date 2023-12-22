@@ -42,15 +42,15 @@ function CatList() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-  const handleChangePage = (event: unknown, newPage: number) => {
+  const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
   
-
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  
   useEffect(() => {
     fetch("http://localhost:8000/categories-produits/")
       .then((response) => response.json()) // Ajout des parenthèses ici
