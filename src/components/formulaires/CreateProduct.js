@@ -67,6 +67,7 @@ function CreateProduct() {
     category: "",
     serial_number: dateFormatee,
     details: "",
+    prix: "",
     status: "",
     location: "",
     quantity: "",
@@ -126,6 +127,9 @@ function CreateProduct() {
             </div>
             <div className="">
               <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="text" value={product.details} name="details" placeholder="Description" onChange={handleInputChange} />
+            </div>
+            <div className="">
+              <input className="m-5 p-2 w-11/12 rounded-lg outline-0 text-neutral-600" type="number" value={product.cout} name="cout" placeholder="Prix unitaire" onChange={handleInputChange} />
             </div>
             <div className="">
               <select className="m-5 p-2 w-72 rounded-lg outline-0 text-neutral-600" value={product.category} name="category" onChange={handleInputChange}

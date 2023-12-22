@@ -101,13 +101,7 @@ function CatList() {
                   <div className='flex justify-end'>
                   <React.Fragment>
                       <MdOutlineDeleteForever onClick={handleOpenAlert} className='text-red-500 cursor-pointer text-2xl'/>
-                      <Dialog 
-                        open={open}
-                        onClose={handleClose}
-                        aria-labelledby="alert-dialog-title"
-                        aria-describedby="alert-dialog-description"
-                        style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
-                      >
+                      <Dialog  open={open} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }} >
                           <DialogTitle id="alert-dialog-title" className='font-bold text-2xl'>
                             SUPPRESSION 
                           </DialogTitle>
