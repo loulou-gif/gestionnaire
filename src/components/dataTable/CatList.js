@@ -10,6 +10,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { Dialog, DialogActions, DialogContentText, DialogTitle, DialogContent } from '@mui/material';
+// import axios from 'axios';
+// import { useParams } from 'react-router-dom';
 
 
 
@@ -18,6 +20,8 @@ function CatList() {
   const [info, setInfo] = useState(false)
   const [modif, setModif] = useState(false)
   const [open, setOpen] = useState(false)
+  const [values, setValues] = useState(null)
+  // const [id] = useParams()
 
   const handleOpenAlert = () => {
     setOpen(true)
@@ -26,11 +30,13 @@ function CatList() {
   const handleClose = () => {
     setOpen(false)
   }
-  const handleModel = () => {
+  const handleModel = (id) => {
+    setValues(id);
     setModif(true)
   }
 
   const handleCloseModel = () => {
+
     setModif(false)
   }
   const handleModif = () => {
@@ -40,7 +46,7 @@ function CatList() {
     setInfo(false)
   }
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -62,6 +68,12 @@ function CatList() {
         console.log(err.message);
       });
   }, []);
+
+  
+  // useEffect(() => {
+  //   axios.get("http://localhost:8000/categories-produits/"+id)
+  //   .then(res => console.log(res))
+  // })
 
   return (
     <div>
@@ -127,7 +139,6 @@ function CatList() {
                         <div className='p-16'>
                             <h3 className='text-center text-2xl font-bold'>MODIFIER LE STATUT</h3>
                             <input name='Status'  className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Titre Status' />
-                            <input name='Nombre'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600' placeholder='Nombre' />
                             <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Details' />
                             <div className="flex justify-center">
                               <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-green-400 rounded-lg text-center text-white hover:bg-green-500" onClick={handleCloseModif} >Modifier</button>
