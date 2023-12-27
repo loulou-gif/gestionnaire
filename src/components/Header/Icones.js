@@ -19,7 +19,7 @@ function Icones() {
         let handler = (e) => {
             if(!menuRef.current.contains(e.target)){
                 setMenu(false);
-                console.log(menuRef.current)
+                // console.log(menuRef.current)
             }
         };
 
@@ -31,7 +31,7 @@ function Icones() {
 
     return (
         <div className="flex justify-end items-center h-full" ref={menuRef}>
-            <VscAccount className="text-gray-400 mr-5 text-5xl cursor-pointer" onClick={() => { setMenu(!menu) }} />
+            <VscAccount className="text-gray-400 mr-8 text-4xl cursor-pointer" onClick={() => { setMenu(!menu) }} />
             <div className={`dropdown-menu list-none text-center ${menu ? 'active' : 'inactive'}`}>
                 <h3 className="font-bold pb-3">Menu user</h3>
                 <li className="border-t pt-3 flex cursor-pointer" onClick={logout} >
