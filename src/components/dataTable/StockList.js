@@ -16,6 +16,15 @@ function StockList() {
   const [info, setInfo] = useState(false)
   const [modif, setModif] = useState(false)
   const [open, setOpen] = useState(false)
+  const [values, setValues] = useState({
+    name:"",
+    location:"",
+    status:'',
+    category:"",
+    image:'',
+    price:"",
+    quantity:"",
+  })
 
   const handleOpenAlert = () => {
     setOpen(true)
@@ -25,14 +34,34 @@ function StockList() {
     setOpen(false)
   }
 
-  const handleModel = () => {
+  const handleModel = (name) => {
+    const selectProduct = product.find((item) => item.name === name)
+    setValues({
+      name: selectProduct.name,
+      location: selectProduct.location,
+      status:selectProduct.status,
+      category: selectProduct.category,
+      image:selectProduct.image,
+      price: selectProduct.price,
+      quantity: selectProduct.quantity,
+    })
     setModif(true)
   }
 
   const handleCloseModel = () => {
     setModif(false)
   }
-  const handleModif = () => {
+  const handleModif = (name) => {
+    const selectProduct = product.find((item) => item.name === name)
+    setValues({
+      name: selectProduct.name,
+      location: selectProduct.location,
+      status:selectProduct.status,
+      category: selectProduct.category,
+      image:selectProduct.image,
+      price: selectProduct.price,
+      quantity: selectProduct.quantity,
+    })
     setInfo(true)
   }
   const handleCloseModif = () => {
@@ -62,7 +91,55 @@ function StockList() {
     setPage(0);
   };
   
- 
+  const [location, setLocation] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8000/Emplacement/")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setLocation(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
+  const locations = location.map((locate) => (
+    <option key={locate.id}>{locate.name}</option>
+  ));
+  const [status, setStatus] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8000/status-produit/")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setStatus(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
+  const statuts = status.map((state) => (
+    <option key={state.id}>{state.name}</option>
+  ));
+
+  const [categorie, setCategorie] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8000/categories-produits/")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setCategorie(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
+  const categories = categorie.map((cat) => (
+    <option key={cat.id}>{cat.name}</option>
+  ));
 
   // const conditionalRowStyles = [
   //   {
@@ -129,21 +206,21 @@ function StockList() {
                             <button className=' w-20 h-10 bg-green-500 rounded-xl duration-200 hover:bg-green-700 hover:duration-300 text-white'onClick={handleClose}> Non</button>
                           </DialogActions>
                       </Dialog>
-                      <MdOutlineInfo onClick={handleModel} className='text-blue-500 cursor-pointer text-2xl' />
+                      <MdOutlineInfo onClick={() => handleModel(row.name)} className='text-blue-500 cursor-pointer text-2xl' />
                       
                       <Dialog className='' style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }} open={modif} onClose={handleCloseModel} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                         <div className='p-16 w-12/12' >
                             <h3 className='text-center text-2xl font-bold'>INFORMATIONS SUR LE PRODUIT</h3>
                             
-                              <input name='name' disabled className='m-5 pr-20 p-5 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Nom du produit' />
+                              <input name='name' disabled className='m-5 pr-20 p-5 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Nom du produit' value={values.name } />
                            
                             <div className='flex'>
-                              <input name='category' disabled className='m-5 p-2 w-72 h-16 rounded-lg  border outline-0 text-neutral-600' placeholder='Catégorie' />
-                              <input name='location' disabled className='m-5 ml-2 p-2 w-72 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Emplacement' />
+                              <input name='category' disabled className='m-5 p-2 w-72 h-16 rounded-lg  border outline-0 text-neutral-600' placeholder='Catégorie' value={values.category } />
+                              <input name='location' disabled className='m-5 ml-2 p-2 w-72 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Emplacement' value={values.location } />
                             </div>
                             <div className='flex'>
-                              <input name='quantity' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Quantité' />
-                              <input name='status' disabled className='m-5 p-2 w-72 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Status' />
+                              <input name='quantity' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Quantité' value={values.quantity }/>
+                              <input name='status' disabled className='m-5 p-2 w-72 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Status' value={values.status } />
                             </div>
                             <div className="flex justify-center">
                               <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-blue-400 rounded-lg text-center text-white hover:bg-blue-500" onClick={handleCloseModel} >Fermer</button>
@@ -151,15 +228,22 @@ function StockList() {
                         </div>
                       </Dialog>
                       
-                    <RiEditBoxLine onClick={handleModif} className='text-green-400 cursor-pointer text-2xl' />
+                    <RiEditBoxLine onClick={() => handleModif(row.name)} className='text-green-400 cursor-pointer text-2xl' />
                     <Dialog className='' style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }} open={info} onClose={handleCloseModif} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                         <div className='p-16' >
                             <h3 className='text-center text-2xl font-bold'>MODIFIER LE PRODUIT</h3>
-                            <input name='Status'  className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Nom du produit' />
-                            <input name='Nombre'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600' placeholder='Catégorie' />
-                            <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Empllacement' />
-                            <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Quantité' />
-                            <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Status' />
+                            <input name='Status'  className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Nom du produit' value={values.name } />
+                            <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Empllacement' value={values.location } />
+                            <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Quantité' value={values.quantity } />
+                            <select className="m-5 p-2 w-11/12 h-16 rounded-lg outline-0 border text-neutral-600" value={product.category} name="category"
+                            > <option value="Catégorie">{values.category } </option>{categories } 
+                            </select>
+                            <select className="m-5 p-2 w-11/12 h-16 rounded-lg outline-0 border text-neutral-600" value={product.status} name="status"
+                            > <option value="Status">{values.status }</option> {statuts}
+                            </select>
+                            <select className="m-5 p-2 w-11/12 h-16 rounded-lg outline-0 border text-neutral-600" value={product.location} name="location"
+                            > <option value="Status">{values.location }</option> {locations}
+                            </select>
                             <div className="flex justify-center">
                               <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-green-400 rounded-lg text-center text-white hover:bg-green-500" onClick={handleCloseModif} >Modifier</button>
                             </div>

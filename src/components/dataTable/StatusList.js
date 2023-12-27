@@ -17,6 +17,11 @@ function StatusList() {
   const [modif, setModif] = useState(false)
   // const [deleted, setDelete] = useState(false)
   const [open, setOpen] = useState(false)
+  const [values, setValues] = useState({
+    name:"",
+    details:"",
+    nombre:"",
+  })
 
   const handleOpenAlert = () => {
     setOpen(true)
@@ -31,14 +36,27 @@ function StatusList() {
   //   console.log("c'est ok")
 
   // }
-  const handleModel = () => {
+  const handleModel = (name) => {
+    const selectProduct = product.find((item) => item.name === name)
+    setValues({
+      name: selectProduct.name,
+      details: selectProduct.details,
+      identifiant: selectProduct.identifiant
+    })
+
     setModif(true)
   }
 
   const handleCloseModel = () => {
     setModif(false)
   }
-  const handleModif = () => {
+  const handleModif = (name) => {
+    const selectProduct = product.find((item) => item.name === name)
+    setValues({
+      name: selectProduct.name,
+      details: selectProduct.details,
+      identifiant: selectProduct.identifiant
+    })
     setInfo(true)
   }
   const handleCloseModif = () => {
@@ -114,27 +132,27 @@ const handleChangeRowsPerPage = (event) => {
                           </DialogActions>
                       </Dialog >
                       
-                      <MdOutlineInfo onClick={handleModel} className='text-blue-500 cursor-pointer text-2xl' />
+                      <MdOutlineInfo onClick={() => handleModel(row.name)} className='text-blue-500 cursor-pointer text-2xl' />
                       
                       <Dialog className='' style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }} open={modif} onClose={handleCloseModel} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                         <div className='p-16'>
                             <h3 className='text-center text-2xl font-bold'>INFORMATIONS SUR LE STATUT</h3>
-                            <input name='Status' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Titre Status' />
-                            <input name='Nombre' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600' placeholder='Nombre' />
-                            <input name='Details' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Details' />
+                            <input name='Status' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Titre Status' value={values.name} />
+                            <input name='Nombre' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600' placeholder='Nombre' value={values.identifiant} />
+                            <input name='Details' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Details' value={values.details}/>
                             <div className="flex justify-center">
                               <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-blue-400 rounded-lg text-center text-white hover:bg-blue-500" onClick={handleCloseModel} >Fermer</button>
                             </div>
                         </div>
                       </Dialog>
                       
-                    <RiEditBoxLine onClick={handleModif} className='text-green-400 cursor-pointer text-2xl' />
+                    <RiEditBoxLine onClick={() => handleModif(row.name)} className='text-green-400 cursor-pointer text-2xl' />
                     <Dialog className='' style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }} open={info} onClose={handleCloseModif} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                         <div className='p-16'>
                             <h3 className='text-center text-2xl font-bold'>MODIFIER LE STATUT</h3>
-                            <input name='Status'  className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Titre Status' />
-                            <input name='Nombre'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600' placeholder='Nombre' />
-                            <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Details' />
+                            <input name='Status'  className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Titre Status' value={values.name} />
+                            <input name='Nombre'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600' placeholder='Nombre' value={values.identifiant}/>
+                            <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Details' value={values.details} />
                             <div className="flex justify-center">
                               <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-green-400 rounded-lg text-center text-white hover:bg-green-500" onClick={handleCloseModif} >Modifier</button>
                             </div>
