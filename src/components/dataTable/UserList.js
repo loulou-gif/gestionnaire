@@ -28,6 +28,11 @@ function UserList() {
   const [info, setInfo] = useState(false)
   const [modif, setModif] = useState(false)
   const [open, setOpen] = useState(false)
+  const [values, setValues] = useState({
+    last_name:"",
+    email:"",
+    username:"",
+  })
 
   const handleOpenAlert = () => {
     setOpen(true)
@@ -36,7 +41,13 @@ function UserList() {
   const handleClose = () => {
     setOpen(false)
   }
-  const handleModel = () => {
+  const handleModel = (name) => {
+    const selectUser = user.find((item) => item.name === name)
+    setValues({
+      last_name: selectUser.last_name,
+      username: selectUser.username,
+      email: selectUser.email,
+    })
     setModif(true)
   }
 
@@ -124,27 +135,27 @@ function UserList() {
                             <button className=' w-20 h-10 bg-green-500 rounded-xl duration-200 hover:bg-green-700 hover:duration-300 text-white'onClick={handleClose}> Non</button>
                           </DialogActions>
                       </Dialog>
-                      <MdOutlineInfo onClick={handleModel} className='text-blue-500 cursor-pointer text-2xl' />
+                      <MdOutlineInfo onClick={() => handleModel(row.name)} className='text-blue-500 cursor-pointer text-2xl' />
                       
                       <Dialog className='' style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }} open={modif} onClose={handleCloseModel} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                         <div className='p-16'>
                             <h3 className='text-center text-2xl font-bold'>INFORMATIONS SUR LE STATUT</h3>
-                            <input name='name' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Nom' />
-                            <input name='prenom' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Prénoms' />
-                            <input name='email' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='email' />
+                            <input name='name' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Nom' value={values.username} />
+                            <input name='prenom' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Prénoms' value={values.last_name} />
+                            <input name='email' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='email' value={values.email}/>
                             <div className="flex justify-center">
                               <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-blue-400 rounded-lg text-center text-white hover:bg-blue-500" onClick={handleCloseModel} >Fermer</button>
                             </div>
                         </div>
                       </Dialog>
                       
-                    <RiEditBoxLine onClick={handleModif} className='text-green-400 cursor-pointer text-2xl' />
+                    <RiEditBoxLine onClick={() => handleModif(row.name)} className='text-green-400 cursor-pointer text-2xl' />
                     <Dialog className='' open={info} onClose={handleCloseModif} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}>
                         <div className='p-16'>
                             <h3 className='text-center text-2xl font-bold'>MODIFIER LE STATUT</h3>
-                            <input name='name'  className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Name' />
-                            <input name='prenoms'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600' placeholder='Prenoms' />
-                            <input name='email'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Email' />
+                            <input name='name'  className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Name'  value={values.username}/>
+                            <input name='prenoms'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600' placeholder='Prenoms' value={values.last_name} />
+                            <input name='email'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Email' value={values.email} />
                             <div className="flex justify-center">
                               <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-green-400 rounded-lg text-center text-white hover:bg-green-500" onClick={handleCloseModif} >Modifier</button>
                             </div>
