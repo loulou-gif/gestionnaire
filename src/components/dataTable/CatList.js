@@ -30,7 +30,7 @@ function CatList() {
 
   const handleDelete = (id) => {
     axios.delete(`http://localhost:8000/categories-produits/${id}`)
-    setProduct((product) => product.filter((product) => product.id !== id)).catch((err) => {console.log(err)})
+    setProduct((product) => product.filter((product) => product.id !== id))
     setOpen(false);
   }
 

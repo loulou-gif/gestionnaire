@@ -32,7 +32,7 @@ function StatusList() {
     setOpen(false)
   }
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8000/list-user/${id}`);
+    axios.delete(`http://localhost:8000/status-produit/${id}`);
 
       // Mettre à jour l'état après la suppression
     setProduct((prevProducts) => prevProducts.filter((product) => product.id !== id))
