@@ -9,6 +9,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { DialogContent } from '@material-ui/core';
 import { Dialog, DialogActions, DialogContentText, DialogTitle } from '@mui/material';
+import axios from 'axios';
 
 
 function StockList() {
@@ -31,6 +32,13 @@ function StockList() {
   }
 
   const handleClose = () => {
+    setOpen(false)
+  }
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:8000/list-user/${id}`);
+
+      // Mettre à jour l'état après la suppression
+    setProduct((prevProducts) => prevProducts.filter((product) => product.id !== id))
     setOpen(false)
   }
 
@@ -202,7 +210,7 @@ function StockList() {
                             </DialogContentText>
                           </DialogContent>
                           <DialogActions className='text-center'>
-                            <button className=' w-20 h-10 bg-red-500 rounded-xl duration-200 hover:bg-red-700 hover:duration-300 text-white' onClick={handleClose}> Oui</button>
+                            <button className=' w-20 h-10 bg-red-500 rounded-xl duration-200 hover:bg-red-700 hover:duration-300 text-white' onClick={() => handleDelete(row.id)}> Oui</button>
                             <button className=' w-20 h-10 bg-green-500 rounded-xl duration-200 hover:bg-green-700 hover:duration-300 text-white'onClick={handleClose}> Non</button>
                           </DialogActions>
                       </Dialog>
