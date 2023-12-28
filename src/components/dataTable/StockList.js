@@ -35,12 +35,30 @@ function StockList() {
     setOpen(false)
   }
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8000/stock/${id}`);
-
-      // Mettre à jour l'état après la suppression
-    setProduct((prevProducts) => prevProducts.filter((product) => product.id !== id))
-    setOpen(false)
+    axios.delete(`http://localhost:8000/stock/${id}`)
+      .then((response) => {
+        // Mettre à jour l'état après la suppression
+        setProduct((prevProducts) => prevProducts.filter((product) => product.id !== id));
+        setOpen(false);
+      })
+      .catch((error) => {
+        console.error('Erreur lors de la suppression :', error);
+      });
   }
+  
+  const handleChangeModif = (id) => {
+    axios.put(`http://localhost:8000/stock/${id}`, values)
+      .then((response) => {
+        // Mettre à jour l'état après la modification
+        setProduct((prevProducts) => prevProducts.map((product) => (product.id === id ? { ...product, ...values } : product)));
+        console.log(response)
+        setOpen(false);
+      })
+      .catch((error) => {
+        console.error('Erreur lors de la modification :', error);
+      });
+  }
+  
 
   const handleModel = (name) => {
     const selectProduct = product.find((item) => item.name === name)
@@ -148,7 +166,7 @@ function StockList() {
   const categories = categorie.map((cat) => (
     <option key={cat.id}>{cat.name}</option>
   ));
-
+  const quant = values.quantity + " " + values.name
   // const conditionalRowStyles = [
   //   {
   //     when: (row) => row.status === 'Indisponible', // Remplacez 'votre_condition' par la condition que vous souhaitez vérifier
@@ -246,23 +264,22 @@ function StockList() {
                     <Dialog className='' style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }} open={info} onClose={handleCloseModif} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                         <div className='p-16' >
                             <h3 className='text-center text-2xl font-bold'>MODIFIER LE PRODUIT</h3>
-                            <input name='Status'  className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Nom du produit' value={values.name } />
-                            <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Empllacement' value={values.location } />
+                            <input name='Status'  className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border-b text-neutral-600' placeholder='Nom du produit' value={values.name } onChange={(e) => setValues({ ...values, name: e.target.value })} />
                             <div className='flex'>
-                            <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Quantité' value={`${values.quantity } ${values.name}`}/>
-                            <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='price' value={`${values.price } FCFA/unit `} />
+                            <input name='name'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border-b outline-0 text-neutral-600'placeholder='quantity' value={`${quant}`} />
+                            <input name='price'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border-b outline-0 text-neutral-600'placeholder='price' value={`${values.price }  `} />
                             </div>
-                            <select className="m-5 p-2 w-11/12 h-16 rounded-lg outline-0 border text-neutral-600" value={product.category} name="category"
-                            > <option value="Catégorie">{values.category } </option>{categories } 
+                            <select className="m-5 p-2 w-11/12 h-16 rounded-lg outline-0 border-b text-neutral-600" value={product.category} name="category"
+                            > <option value="category" selected>{values.category } </option>{categories } 
                             </select>
-                            <select className="m-5 p-2 w-11/12 h-16 rounded-lg outline-0 border text-neutral-600" value={product.status} name="status"
-                            > <option value="Status">{values.status }</option> {statuts}
+                            <select className="m-5 p-2 w-11/12 h-16 rounded-lg outline-0 border-b text-neutral-600" value={product.status} name="status"
+                            > <option value="status" selected >{values.status }</option> {statuts}
                             </select>
-                            <select className="m-5 p-2 w-11/12 h-16 rounded-lg outline-0 border text-neutral-600" value={product.location} name="location"
-                            > <option value="Status">{values.location }</option> {locations}
+                            <select className="m-5 p-2 w-11/12 h-16 rounded-lg outline-0 border-b text-neutral-600" value={product.location} name="location"
+                            > <option value="location">{values.location }</option> {locations}
                             </select>
                             <div className="flex justify-center">
-                              <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-green-400 rounded-lg text-center text-white hover:bg-green-500" onClick={handleCloseModif} >Modifier</button>
+                              <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-green-400 rounded-lg text-center text-white hover:bg-green-500" onClick={() => handleChangeModif(row.id)} >Modifier</button>
                             </div>
                         </div>
                       </Dialog>
