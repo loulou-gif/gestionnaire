@@ -219,16 +219,22 @@ function StockList() {
                       <Dialog className='' style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }} open={modif} onClose={handleCloseModel} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                         <div className='p-16 w-12/12' >
                             <h3 className='text-center text-2xl font-bold'>INFORMATIONS SUR LE PRODUIT</h3>
-                            
-                              <input name='name' disabled className='m-5 pr-20 p-5 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Nom du produit' value={values.name } />
-                           
                             <div className='flex'>
-                              <input name='category' disabled className='m-5 p-2 w-72 h-16 rounded-lg  border outline-0 text-neutral-600' placeholder='Catégorie' value={values.category } />
-                              <input name='location' disabled className='m-5 ml-2 p-2 w-72 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Emplacement' value={values.location } />
+                              <img alt='product_picture' src={row.image} className='w-80 mt-10'/>
+                              <h5 className='m-5 pr-20 p-5 w-11/12 h-16 rounded-lg mt-24 border-b   text-neutral-600'>{values.name }</h5>
+                           </div>
+                           
+                            <div className='flex w-12/12'>
+                              <h3 className='m-5 pr-20 p-5 w-11/12 pb-5 h-16 rounded-lg  border-b text-neutral-600'>{values.category }</h3>
+                            </div>
+                            <div className='flex w-12/12'>
+                              <h3 className='m-5 pr-20 p-5 w-60 pb-5 h-16 rounded-lg  border-b text-neutral-600'>{values.price } FCFA</h3>
+                              <h3 className='m-5 pr-20 p-5 w-64  h-16 rounded-lg  border-b text-neutral-600'>{values.location }</h3>
                             </div>
                             <div className='flex'>
-                              <input name='quantity' disabled className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Quantité' value={values.quantity }/>
-                              <input name='status' disabled className='m-5 p-2 w-72 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Status' value={values.status } />
+                              
+                            <h3 className='m-5 pr-20 p-5 w-60 pb-5 h-16 rounded-lg  border-b text-neutral-600'>{values.quantity } {values.name}</h3>
+                              <h3 className='m-5 pr-20 p-5 w-64  h-16 rounded-lg  border-b text-neutral-600'>{values.status }</h3>
                             </div>
                             <div className="flex justify-center">
                               <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-blue-400 rounded-lg text-center text-white hover:bg-blue-500" onClick={handleCloseModel} >Fermer</button>
@@ -242,7 +248,10 @@ function StockList() {
                             <h3 className='text-center text-2xl font-bold'>MODIFIER LE PRODUIT</h3>
                             <input name='Status'  className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Nom du produit' value={values.name } />
                             <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Empllacement' value={values.location } />
-                            <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Quantité' value={values.quantity } />
+                            <div className='flex'>
+                            <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Quantité' value={`${values.quantity } ${values.name}`}/>
+                            <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='price' value={`${values.price } FCFA/unit `} />
+                            </div>
                             <select className="m-5 p-2 w-11/12 h-16 rounded-lg outline-0 border text-neutral-600" value={product.category} name="category"
                             > <option value="Catégorie">{values.category } </option>{categories } 
                             </select>
