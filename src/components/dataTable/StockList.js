@@ -27,6 +27,10 @@ function StockList() {
     quantity:"",
   })
 
+  
+  
+  
+
   const handleOpenAlert = () => {
     setOpen(true)
   }
@@ -166,7 +170,6 @@ function StockList() {
   const categories = categorie.map((cat) => (
     <option key={cat.id}>{cat.name}</option>
   ));
-  const quant = values.quantity + " " + values.name
   // const conditionalRowStyles = [
   //   {
   //     when: (row) => row.status === 'Indisponible', // Remplacez 'votre_condition' par la condition que vous souhaitez vérifier
@@ -176,6 +179,15 @@ function StockList() {
   //     },
   //   },
   // ];
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+    console.log(value)
+  };
+
   return (
     <div>
       <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto mt-72">
@@ -264,19 +276,19 @@ function StockList() {
                     <Dialog className='' style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }} open={info} onClose={handleCloseModif} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                         <div className='p-16' >
                             <h3 className='text-center text-2xl font-bold'>MODIFIER LE PRODUIT</h3>
-                            <input name='Status'  className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border-b text-neutral-600' placeholder='Nom du produit' value={values.name } onChange={(e) => setValues({ ...values, name: e.target.value })} />
+                            <input name='name'  className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border-b text-neutral-600' placeholder='Nom du produit' value={`${values.name }`} onChange={handleChange} />
                             <div className='flex'>
-                            <input name='name'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border-b outline-0 text-neutral-600'placeholder='quantity' value={`${quant}`} />
-                            <input name='price'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border-b outline-0 text-neutral-600'placeholder='price' value={`${values.price }  `} />
+                            <input name='quantity'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border-b outline-0 text-neutral-600'placeholder='quantity' value={`${values.quantity}`} onChange={handleChange}/>
+                            <input name='price'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border-b outline-0 text-neutral-600'placeholder='price' value={`${values.price }`} onChange={handleChange}/>
                             </div>
                             <select className="m-5 p-2 w-11/12 h-16 rounded-lg outline-0 border-b text-neutral-600" value={product.category} name="category"
-                            > <option value="category" selected>{values.category } </option>{categories } 
+                            > {categories } 
                             </select>
                             <select className="m-5 p-2 w-11/12 h-16 rounded-lg outline-0 border-b text-neutral-600" value={product.status} name="status"
-                            > <option value="status" selected >{values.status }</option> {statuts}
+                            > {statuts}
                             </select>
                             <select className="m-5 p-2 w-11/12 h-16 rounded-lg outline-0 border-b text-neutral-600" value={product.location} name="location"
-                            > <option value="location">{values.location }</option> {locations}
+                            >  {locations}
                             </select>
                             <div className="flex justify-center">
                               <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-green-400 rounded-lg text-center text-white hover:bg-green-500" onClick={() => handleChangeModif(row.id)} >Modifier</button>
