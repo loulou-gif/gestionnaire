@@ -51,17 +51,21 @@ function StockList() {
   }
   
   const handleChangeModif = (id) => {
-    axios.put(`http://localhost:8000/stock/${id}`, values)
+    axios
+      ({method: 'PUT', url: `http://localhost:8000/stock/${id}`, data: values})
       .then((response) => {
-        // Mettre à jour l'état après la modification
-        setProduct((prevProducts) => prevProducts.map((product) => (product.id === id ? { ...product, ...values } : product)));
-        console.log(response)
+        setProduct((prevProducts) =>
+          prevProducts.map((product) =>
+            product.id === id ? { ...product, ...values } : product
+          )
+        );
+        console.log(response);
         setOpen(false);
       })
       .catch((error) => {
         console.error('Erreur lors de la modification :', error);
       });
-  }
+  };
   
 
   const handleModel = (name) => {
