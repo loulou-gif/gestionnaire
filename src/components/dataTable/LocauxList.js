@@ -33,6 +33,15 @@ function LocauxList() {
     details:"",
   })
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+    console.log(value)
+  };
+
   const handleOpenAlert = (name) => {
     setOpen(true)
   }
@@ -143,8 +152,8 @@ function LocauxList() {
                     <Dialog className='' style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }} open={info} onClose={handleCloseModif} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                         <div className='p-16'>
                             <h3 className='text-center text-2xl font-bold'>MODIFIER LE STATUT</h3>
-                            <input name='name'  className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Nom du local' value={values.name} />
-                            <input name='Details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Details' value={values.details} />
+                            <input name='name'  className='m-5 p-2 w-11/12 h-16 rounded-lg  outline-0 border text-neutral-600' placeholder='Nom du local' value={values.name} onChange={handleChange} />
+                            <input name='details'  className='m-5 p-2 w-11/12 h-16 rounded-lg  border outline-0 text-neutral-600'placeholder='Details' value={values.details} onChange={handleChange}/>
                             <div className="flex justify-center">
                               <button className="m-5 mb-0 p-2 w-72 duration-300 hover:duration-300 bg-green-400 rounded-lg text-center text-white hover:bg-green-500" onClick={handleCloseModif} >Modifier</button>
                             </div>
