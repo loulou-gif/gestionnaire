@@ -40,14 +40,11 @@ function Connexion() {
 
     return (
         <div className="flex justify-around">
-            {/* <div className="text-white w-4/12 h-80 mt-44 ">
-                <h1 className="w-11/12 text-white text-5xl font-bold">GESTIONNAIRES</h1>
-                <p className="mt-20 text-xl w-11/12 h-screen ">Ea reprehenderit exercitation incididunt ipsum nisi do irure exercitation excepteur eiusmod enim. Veniam dolor laboris sint consectetur qui. Ex qui ipsum ex irure occaecat fugiat amet exercitation labore aliqua quis velit aliquip. Officia pariatur occaecat nostrud exercitation nisi mollit aliquip ut nisi proident voluptate nisi aliquip. </p>
-            </div> */}
+           
             <div className="flex justify-around h-screen  w-4/12">
                 <div className="h-4/6 w-11/12 opacity-95 bg-neutral-200 pl-16 pr-16 pt-20 pb-68 mt-40 rounded-md">
                     <form className="mt-10" method="POST" onSubmit={handleSubmit}>
-                        <h1 className="text-black mb-5 text-3xl">CONNEXION</h1>
+                        <h1 className="text-black mb-5 font-semibold text-4xl">CONNEXION</h1>
                         <div className="pb-8">
                             <input className="w-11/12 mt-2 mb-2 outline-0 rounded-md bg-neutral-300 pt-4 pb-4 pl-5" placeholder="Nom d'utilisateur" type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)}
                             />
@@ -67,7 +64,7 @@ function Connexion() {
                         </div>
                         <div className="">
                             <p className="w-11/12 pb-20">
-                                Mot de passe oublié? Contactez votre administrateur.
+                                Mot de passe oublié?<span className="text-yellow-600"> Contactez votre administrateur.</span> 
                             </p>
                         </div>
                     </form>
