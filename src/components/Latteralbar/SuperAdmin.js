@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MdManageAccounts, MdOutlineLocalGroceryStore, MdCategory, MdMyLocation } from 'react-icons/md';
-import { TbHistoryToggle } from "react-icons/tb";
+// import { TbHistoryToggle } from "react-icons/tb";
 import { GrPowerCycle } from "react-icons/gr";
 import { CiSettings } from "react-icons/ci";
 import { RiListSettingsFill } from "react-icons/ri";
@@ -34,11 +34,11 @@ function SuperAdmin() {
                                             <MdManageAccounts className="text-2xl mr-3" /> Gestion des utilisateurs
                                         </li>
                                     </Link>
-                                    <Link to="/historique" id="Hist" onClick={() => handleLinkClick('Hist')}>
+                                    {/* <Link to="/historique" id="Hist" onClick={() => handleLinkClick('Hist')}>
                                         <li className={`flex select pt-5 pb-3 pl-5 duration-500 hover:border-r cursor-pointer hover:border-black hover:bg-orange-500 ${activeLink === 'Hist' ? 'active border-black bg-orange-500 border-r ' : 'inactive duration-300'}`}>
                                             <TbHistoryToggle className="text-2xl mr-3" /> Historiques
                                         </li>
-                                    </Link>
+                                    </Link> */}
                                     <Link to="/stock" id="Stoc" onClick={() => handleLinkClick('Stoc')}>
                                         <li className={`flex select pt-5 pb-3 pl-5 duration-500 hover:border-r cursor-pointer hover:border-black hover:bg-orange-500 ${activeLink === 'Stoc' ? 'active border-black bg-orange-500 border-r' : 'inactive duration-300'}`}>
                                             <MdOutlineLocalGroceryStore className="text-2xl mr-3" /> Stocks

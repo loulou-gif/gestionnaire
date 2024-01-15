@@ -194,20 +194,21 @@ function StockList() {
 
   return (
     <div>
-      <div className="tab-content grid grid-rows-auto grid-rows-1 grid-rows-auto mt-72">
-        <div className="content bg-neutral  rounded-md  shadow-md ml-80 md:ml-40 -mr-64 p-14 w-11/12">
-          <h1 className='text-2xl font-semibold font-serif'>Liste des produits</h1>
+      <div className="tab-content grid grid-rows-auto grid-rows-1 border ml-80 md w-9/12 mt-20">
+        <div className="bg-neutral rounded-md shadow-md p-5 ">
+          <h1 className='text-2xl font-semibold font-serif ml-10 mt-10'>Liste des produits</h1>
           <TableContainer>
-        <Table sx={{ maxWidth: 980 }} className="mt-10" size="small" aria-label="a dense table">
+        <Table sx={{ maxWidth: 980 }} className="mt-8" size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
-              <TableCell align="left">Produit</TableCell>
+              <TableCell align="left">Numéro de série</TableCell>
+              <TableCell  align="left">Produit</TableCell>
               <TableCell align="left">Catégories</TableCell>
               <TableCell align="left">Status</TableCell>
               <TableCell align="left">Emplacement</TableCell>
               <TableCell align="left">Image</TableCell>
               <TableCell align="left">Quantité</TableCell>
-              <TableCell align="left"  >Prix unitaire</TableCell>
+              <TableCell className='w-32' align="left">Prix unitaire</TableCell>
               <TableCell align="left">Actions</TableCell>
             </TableRow>
           </TableHead>
@@ -217,7 +218,8 @@ function StockList() {
                 hover role="checkbox" tabIndex={-1} key={row.code}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
-                <TableCell align="left">{row.name}</TableCell>
+                <TableCell align="left">{row.serial_number}</TableCell>
+                <TableCell  align="left">{row.name}</TableCell>
                 <TableCell align="left">{row.category}</TableCell>
                 <TableCell align="left">{row.location}</TableCell>
                 <TableCell align="left">{row.status}</TableCell>
@@ -254,7 +256,7 @@ function StockList() {
                         <div className='p-16 w-12/12' >
                             <h3 className='text-center text-2xl font-bold'>INFORMATIONS SUR LE PRODUIT</h3>
                             <div className='flex'>
-                              <img alt='product_picture' src={row.image} className='w-80 mt-10'/>
+                              <img alt='product_picture' src={values.image} className='w-80 mt-10'/>
                               <h5 className='m-5 pr-20 p-5 w-11/12 h-16 rounded-lg mt-24 border-b   text-neutral-600'>{values.name }</h5>
                            </div>
                            
