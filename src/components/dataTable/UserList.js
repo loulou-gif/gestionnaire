@@ -35,7 +35,7 @@ function UserList() {
     username:"",
   })
 
-  const handleOpenAlert = () => {
+  const handleOpenAlert = (name) => {
     setOpen(true)
   }
 
@@ -69,7 +69,13 @@ function UserList() {
   const handleCloseModel = () => {
     setModif(false)
   }
-  const handleModif = () => {
+  const handleModif = (name) => {
+    const selectUser = user.find((item) => item.name === name);
+    setValues({
+      last_name: selectUser.last_name,
+      username: selectUser.username,
+      email: selectUser.email,
+    })
     setInfo(true)
   }
   const handleCloseModif = () => {
