@@ -40,30 +40,20 @@ function Connexion() {
 
     return (
         <div className="flex justify-around">
-            <div className="text-white text-5xl font-bold mt-44 ">
-                <h1>GESTIONNAIRES</h1>
-            </div>
-            <div className="flex justify-end h-screen">
-                <div className="h-3/6 opacity-95 bg-neutral-200 pl-16 pr-16 pt-20 pb-68 mt-48 rounded-md">
-                    <form className="mt-2" method="POST" onSubmit={handleSubmit}>
-                        <div className="pb-5">
-                            <input
-                                className="w-11/12 mt-2 mb-2 outline-0 rounded-md bg-neutral-300 pt-4 pb-4 pl-5"
-                                placeholder="Nom d'utilisateur"
-                                type="text"
-                                name="username"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
+            {/* <div className="text-white w-4/12 h-80 mt-44 ">
+                <h1 className="w-11/12 text-white text-5xl font-bold">GESTIONNAIRES</h1>
+                <p className="mt-20 text-xl w-11/12 h-screen ">Ea reprehenderit exercitation incididunt ipsum nisi do irure exercitation excepteur eiusmod enim. Veniam dolor laboris sint consectetur qui. Ex qui ipsum ex irure occaecat fugiat amet exercitation labore aliqua quis velit aliquip. Officia pariatur occaecat nostrud exercitation nisi mollit aliquip ut nisi proident voluptate nisi aliquip. </p>
+            </div> */}
+            <div className="flex justify-around h-screen  w-4/12">
+                <div className="h-4/6 w-11/12 opacity-95 bg-neutral-200 pl-16 pr-16 pt-20 pb-68 mt-40 rounded-md">
+                    <form className="mt-10" method="POST" onSubmit={handleSubmit}>
+                        <h1 className="text-black mb-5 text-3xl">CONNEXION</h1>
+                        <div className="pb-8">
+                            <input className="w-11/12 mt-2 mb-2 outline-0 rounded-md bg-neutral-300 pt-4 pb-4 pl-5" placeholder="Nom d'utilisateur" type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)}
                             />
                         </div>
-                        <div className="w-92 pb-5">
-                            <input
-                                className="w-11/12 mt-2 mb-2 outline-0 rounded-md bg-neutral-300 pt-4 pb-4 pl-5"
-                                placeholder="Password"
-                                type="password"
-                                name="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
+                        <div className="w-92 pb-8">
+                            <input className="w-11/12 mt-2 mb-2 outline-0 rounded-md bg-neutral-300 pt-4 pb-4 pl-5" placeholder="Password" type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
 
