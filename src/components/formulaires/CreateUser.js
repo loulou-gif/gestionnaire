@@ -3,43 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 
 function CreateUser() {
-  // const [directions, setDirections] = useState([]);
-  // const [selectedDirection, setSelectedDirection] = useState("");
-  // const [managers, setManagers] = useState([]);
-
-  // useEffect(() => {
-  //   fetch("http://127.0.0.1:8000/direction/")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setDirections(data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.message);
-  //     });
-  // }, []);
-
-  // useEffect(() => {
-  //   // Filtrer les managers pour la direction sélectionnée
-  //   const selectedDirectionObject = directions.find(
-  //     (direction) => direction.direction.toUpperCase() === selectedDirection
-  //   );
-
-  //   if (selectedDirectionObject) {
-  //     setManagers([selectedDirectionObject.manager]);
-  //   } else {
-  //     setManagers([]);
-  //   }
-  // }, [selectedDirection, directions]);
-
-  // const handleDirectionChange = (event) => {
-  //   setSelectedDirection(event.target.value.toUpperCase());
-  // };
-
-  // const directionOptions = directions.map((direction) => (
-  //   <option key={direction.id}>{direction.direction.toUpperCase()}</option>
-  // ));
-
-//   api création comptes
+  //   api création comptes
     const [account, setAccount] = useState({
         username:"",
         last_name:"",
